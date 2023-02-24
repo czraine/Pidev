@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView?>
+<?import javafx.scene.layout.VBox?>
+
+<VBox prefHeight="445.0" prefWidth="198.0" styleClass="toolbar-container" stylesheets="@../../../resources/dark-theme.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="roadrevel.UI.Tourist.Toolbar.ToolbarController">
+   <children>
+      <JFXButton contentDisplay="TOP" mnemonicParsing="false" onAction="#loadSeePlaces" prefHeight="400.0" prefWidth="244.0" styleClass="toolbar-button" text="See Places" textAlignment="CENTER">
+         <graphic>
+            <FontAwesomeIconView glyphName="USER" size="25" />
+         </graphic>
+      </JFXButton>
+      <JFXButton contentDisplay="TOP" layoutX="10.0" layoutY="10.0" mnemonicParsing="false" onAction="#loadSeeReview" prefHeight="400.0" prefWidth="205.0" styleClass="toolbar-button" text="My reviews" textAlignment="CENTER">
+         <graphic>
+            <FontAwesomeIconView glyphName="BOOK" size="25" />
+         </graphic>
+      </JFXButton>
+      <JFXButton contentDisplay="TOP" mnemonicParsing="false" onAction="#loadFavourites" prefHeight="400.0" prefWidth="200.0" styleClass="toolbar-button" text="my favourite Places" textAlignment="CENTER">
+         <graphic>
+            <FontAwesomeIconView glyphName="CHECK" size="25" textAlignment="CENTER" />
+         </graphic>
+      </JFXButton>
+   </children>
+</VBox>

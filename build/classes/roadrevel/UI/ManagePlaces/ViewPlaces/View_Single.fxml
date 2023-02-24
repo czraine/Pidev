@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXTextArea?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+<?import org.controlsfx.control.Rating?>
+
+
+<AnchorPane id="AnchorPane" cacheShape="false" centerShape="false" prefHeight="702.0" prefWidth="1087.0" scaleShape="false" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8.0.171" fx:controller="roadrevel.UI.ManagePlaces.ViewPlaces.View_SingleController">
+   <children>
+      <ImageView fitHeight="702.0" fitWidth="1087.0" opacity="0.57" pickOnBounds="true" smooth="false">
+         <image>
+            <Image url="@../../../resources/View-of-seaside-resort-Sidi-Bou-Said.-Tunisia-North-Africa-scaled.jpg" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="img1" fitHeight="227.0" fitWidth="346.0" layoutX="23.0" layoutY="20.0" pickOnBounds="true" preserveRatio="true" />
+      <ImageView fx:id="img2" fitHeight="195.0" fitWidth="346.0" layoutX="14.0" layoutY="273.0" pickOnBounds="true" preserveRatio="true" />
+      <JFXTextArea fx:id="pdesc" editable="false" layoutX="385.0" layoutY="333.0" prefHeight="306.0" prefWidth="617.0">
+         <font>
+            <Font name="Arial Bold Italic" size="21.0" />
+         </font>
+      </JFXTextArea>
+      <Label fx:id="tp" layoutX="397.0" layoutY="285.0" prefHeight="48.0" prefWidth="243.0" text="Ticket" textFill="#252523">
+         <font>
+            <Font name="Arial Bold Italic" size="29.0" />
+         </font>
+      </Label>
+      <Label fx:id="cname" layoutX="397.0" layoutY="237.0" prefHeight="48.0" prefWidth="243.0" text="City Name" textFill="#252523">
+         <font>
+            <Font name="Arial Bold Italic" size="29.0" />
+         </font>
+      </Label>
+      <Label fx:id="padress" layoutX="737.0" layoutY="285.0" prefHeight="48.0" prefWidth="243.0" text="Place Address" textFill="#252523">
+         <font>
+            <Font name="Arial Bold Italic" size="29.0" />
+         </font>
+      </Label>
+      <Label fx:id="ptype" layoutX="737.0" layoutY="224.0" prefHeight="48.0" prefWidth="243.0" text="Place Type" textFill="#252523">
+         <font>
+            <Font name="Arial Bold Italic" size="29.0" />
+         </font>
+      </Label>
+      <Label fx:id="pname" layoutX="397.0" layoutY="161.0" prefHeight="48.0" prefWidth="243.0" text="Place Name" textFill="#252523">
+         <font>
+            <Font name="Arial Bold Italic" size="29.0" />
+         </font>
+      </Label>
+      <ImageView fx:id="img3" fitHeight="195.0" fitWidth="346.0" layoutX="23.0" layoutY="487.0" pickOnBounds="true" preserveRatio="true" />
+      <Rating disable="true" layoutX="1008.0" layoutY="41.0" max="1" prefHeight="22.0" prefWidth="26.0" rating="0.0" />
+   </children>
+</AnchorPane>

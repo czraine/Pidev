@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView?>
+<?import javafx.scene.layout.VBox?>
+
+<VBox prefHeight="445.0" prefWidth="154.0" styleClass="toolbar-container" stylesheets="@../../../resources/dark-theme.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="roadrevel.UI.Main.Toolbar.ToolbarController">
+   <children>
+      <JFXButton contentDisplay="TOP" layoutX="10.0" layoutY="10.0" mnemonicParsing="false" onAction="#loadPlaceTable" prefHeight="451.0" prefWidth="154.0" styleClass="toolbar-button" text="Place List" textAlignment="CENTER">
+         <graphic>
+            <FontAwesomeIconView glyphName="TABLE" size="25" />
+         </graphic>
+      </JFXButton>
+   </children>
+</VBox>
