@@ -104,6 +104,8 @@ public class MainPageController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
+      
+        Placedescp.setStyle("-fx-background-color : transparent ; -fx-text-fill: #2A2E37 ; -fx-font-size : 20pt; -fx-font-family : Arial ");
         initDrawer()  ;
         initPlace( i) ;
     }    
@@ -209,10 +211,6 @@ public class MainPageController implements Initializable {
 
     }
 
-    @FXML
-    private void loadRatePage(ActionEvent event) {
-
-    }
  
 
 

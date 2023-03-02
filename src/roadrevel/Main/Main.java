@@ -23,11 +23,11 @@ public class Main extends Application {
     
     @Override
     public void start(Stage stage) throws IOException {
-        Parent root = FXMLLoader.load(getClass().getResource("../UI/Main/MainPage.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource("../UI/NewMain/MainPage.fxml"));
 
-        Scene scene = new Scene(root);
-
-        stage.setScene(scene);
+        
+        stage.setScene(new Scene( root , 1445,833 ));
+        
         stage.show();
         stage.setTitle("RoadRevel");
             }

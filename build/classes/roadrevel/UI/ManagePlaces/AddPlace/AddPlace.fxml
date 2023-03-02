@@ -25,68 +25,38 @@
                         </Label>
                      </children>
                   </HBox>
-                  <HBox prefHeight="80.0" prefWidth="641.0">
+                  <HBox alignment="CENTER" prefHeight="80.0" prefWidth="641.0">
                      <children>
-                        <Label prefHeight="69.0" prefWidth="159.0" text="Place Name " textAlignment="CENTER" textFill="#a49f0a">
-                           <font>
-                              <Font name="Arial Bold Italic" size="24.0" />
-                           </font>
-                        </Label>
-                        <JFXTextField fx:id="Place_Name" prefHeight="55.0" prefWidth="481.0" />
+                        <JFXTextField fx:id="Place_Name" labelFloat="true" prefHeight="55.0" prefWidth="481.0" promptText="Place Name" />
                      </children>
                   </HBox>
-                  <HBox prefHeight="85.0" prefWidth="641.0">
+                  <HBox alignment="CENTER" prefHeight="85.0" prefWidth="641.0">
                      <children>
-                        <Label prefHeight="69.0" prefWidth="159.0" text="City Name " textAlignment="CENTER" textFill="#a49f0a">
-                           <font>
-                              <Font name="Arial Bold Italic" size="24.0" />
-                           </font>
-                        </Label>
-                        <JFXTextField fx:id="CityName" prefHeight="55.0" prefWidth="477.0" />
+                        <JFXTextField fx:id="CityName" labelFloat="true" prefHeight="55.0" prefWidth="477.0" promptText="City Name" />
                      </children>
                   </HBox>
-                  <HBox prefHeight="67.0" prefWidth="641.0">
+                  <HBox alignment="CENTER" prefHeight="67.0" prefWidth="641.0">
                      <children>
-                        <Label prefHeight="69.0" prefWidth="159.0" text="Place Type" textAlignment="CENTER" textFill="#a49f0a">
-                           <font>
-                              <Font name="Arial Bold Italic" size="24.0" />
-                           </font>
-                        </Label>
-                        <JFXTextField fx:id="Place_Type" prefHeight="55.0" prefWidth="481.0" />
+                        <JFXTextField fx:id="Place_Type" labelFloat="true" prefHeight="55.0" prefWidth="481.0" promptText="Place Type" />
                      </children>
                   </HBox>
-                  <HBox prefHeight="69.0" prefWidth="641.0">
+                  <HBox alignment="CENTER" prefHeight="69.0" prefWidth="641.0">
                      <children>
-                        <Label alignment="BOTTOM_LEFT" contentDisplay="BOTTOM" prefHeight="69.0" prefWidth="159.0" text="Description " textAlignment="CENTER" textFill="#a49f0a">
-                           <font>
-                              <Font name="Arial Bold Italic" size="24.0" />
-                           </font>
-                        </Label>
-                        <JFXTextArea fx:id="Place_Descrp" prefHeight="69.0" prefWidth="492.0">
+                        <JFXTextArea fx:id="Place_Descrp" labelFloat="true" prefHeight="69.0" prefWidth="492.0" promptText="Description">
                            <font>
                               <Font name="Arial Bold" size="20.0" />
                            </font>
                         </JFXTextArea>
                      </children>
                   </HBox>
-                  <HBox prefHeight="69.0" prefWidth="641.0">
+                  <HBox alignment="CENTER" prefHeight="69.0" prefWidth="641.0">
                      <children>
-                        <Label prefHeight="69.0" prefWidth="159.0" text="Address" textAlignment="CENTER" textFill="#a49f0a">
-                           <font>
-                              <Font name="Arial Bold Italic" size="24.0" />
-                           </font>
-                        </Label>
-                        <JFXTextField fx:id="Place_Adress" prefHeight="55.0" prefWidth="482.0" />
+                        <JFXTextField fx:id="Place_Adress" labelFloat="true" prefHeight="55.0" prefWidth="482.0" promptText="Address" />
                      </children>
                   </HBox>
-                  <HBox prefHeight="79.0" prefWidth="641.0">
+                  <HBox alignment="CENTER" prefHeight="79.0" prefWidth="641.0">
                      <children>
-                        <Label prefHeight="69.0" prefWidth="159.0" text="Ticket Price" textAlignment="CENTER" textFill="#a49f0a">
-                           <font>
-                              <Font name="Arial Bold Italic" size="24.0" />
-                           </font>
-                        </Label>
-                        <JFXTextField fx:id="Ticket_Price" prefHeight="55.0" prefWidth="483.0" />
+                        <JFXTextField fx:id="Ticket_Price" labelFloat="true" prefHeight="55.0" prefWidth="483.0" promptText="Ticket Price" />
                      </children>
                   </HBox>
                   <HBox prefHeight="70.0" prefWidth="641.0">

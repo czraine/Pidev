@@ -32,7 +32,7 @@ public class ServicePlace implements IService<PlaceToVisit> {
             pst.setString(3, p.getPlace_Type());
             pst.setString(4, p.getPlace_Description());
             pst.setString(5, p.getPlace_Address());
-            pst.setDouble(6, p.getTickets_Price());
+            pst.setInt(6, p.getTickets_Price());
             pst.setString(7, p.getPlace_img());
             pst.setString(8, p.getPlace_img2());
             pst.setString(9, p.getPlace_img3());
@@ -55,7 +55,7 @@ public class ServicePlace implements IService<PlaceToVisit> {
             pst.setString(4, p.getPlace_Type());
             pst.setString(5, p.getPlace_Description());
             pst.setString(6, p.getPlace_Address());
-            pst.setDouble(7, p.getTickets_Price());
+            pst.setInt(7, p.getTickets_Price());
             pst.setString(8, p.getPlace_img());
             pst.setString(9, p.getPlace_img2());
             pst.setString(10, p.getPlace_img3());
@@ -90,7 +90,7 @@ public class ServicePlace implements IService<PlaceToVisit> {
             PreparedStatement pst = cnx.prepareStatement(req);
             ResultSet result = pst.executeQuery();
             while(result.next()) {
-                list.add(new PlaceToVisit(result.getInt("Place_Id"), result.getString("Place_Name"), result.getString("CityName"),result.getString("Place_Type"), result.getString("Place_Description"), result.getString("Place_Address"), result.getDouble("Tickets_Price"), result.getString("Place_Img"), result.getString("Place_img2"), result.getString("Place_Img3")));
+                list.add(new PlaceToVisit(result.getInt("Place_Id"), result.getString("Place_Name"), result.getString("CityName"),result.getString("Place_Type"), result.getString("Place_Description"), result.getString("Place_Address"), result.getInt("Tickets_Price"), result.getString("Place_Img"), result.getString("Place_img2"), result.getString("Place_Img3")));
             }
             System.out.println("placetovisit récupérées !");
         } catch (SQLException ex) {

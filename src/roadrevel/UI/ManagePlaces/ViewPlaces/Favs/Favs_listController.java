@@ -102,7 +102,7 @@ public class Favs_listController implements Initializable {
             pst.setInt(1,u.getUser_Id());
             ResultSet result = pst.executeQuery();
             while(result.next()) {
-                list.add(new PlaceToVisit(result.getInt("Place_Id"), result.getString("Place_Name"), result.getString("CityName"),result.getString("Place_Type"), result.getString("Place_Description"), result.getString("Place_Address"), result.getDouble("Tickets_Price"), result.getString("Place_Img"), result.getString("Place_img2"), result.getString("Place_Img3")));    
+                list.add(new PlaceToVisit(result.getInt("Place_Id"), result.getString("Place_Name"), result.getString("CityName"),result.getString("Place_Type"), result.getString("Place_Description"), result.getString("Place_Address"), result.getInt("Tickets_Price"), result.getString("Place_Img"), result.getString("Place_img2"), result.getString("Place_Img3")));    
             }
     } catch (SQLException ex) {
             Logger.getLogger(PlaceListController.class.getName()).log(Level.SEVERE, null, ex);

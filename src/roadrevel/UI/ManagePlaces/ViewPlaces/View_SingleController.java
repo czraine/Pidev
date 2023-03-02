@@ -58,10 +58,11 @@ public class View_SingleController implements Initializable {
         ptype.setText(selected.getPlace_Type());
         pdesc.setText(selected.getPlace_Description());
         padress.setText(selected.getPlace_Address());
-        tp.setText(String.valueOf(selected.getTickets_Price()));
+        tp.setText(String.valueOf(selected.getTickets_Price())+" TND");
         img1.setImage(image);
         img2.setImage(image2);
         img3.setImage(image3);
     }
+    
     
 }

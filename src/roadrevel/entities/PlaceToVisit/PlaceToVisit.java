@@ -18,7 +18,7 @@ public class PlaceToVisit {
     private String Place_Type ; 
     private String Place_Description ; 
     private String Place_Address ; 
-    private double tickets_Price ;
+    private int tickets_Price ;
     private String Place_img ; 
     private String Place_img2 ;
     private String Place_img3 ;
@@ -27,7 +27,7 @@ public class PlaceToVisit {
         this.Place_Id = Place_Id;
     }
 
-    public PlaceToVisit(int Place_Id, String Place_name, String Cityname, String Place_Type, String Place_Description, String Place_Address, double tickets_Price, String Place_img, String Place_img2, String Place_img3) {
+    public PlaceToVisit(int Place_Id, String Place_name, String Cityname, String Place_Type, String Place_Description, String Place_Address, int tickets_Price, String Place_img, String Place_img2, String Place_img3) {
         this.Place_Id = Place_Id;
         this.Place_name = Place_name;
         this.Cityname = Cityname;
@@ -40,7 +40,7 @@ public class PlaceToVisit {
         this.Place_img3 = Place_img3;
     }
 
-    public PlaceToVisit(String Place_name, String Cityname, String Place_Type, String Place_Description, String Place_Address, double tickets_Price, String Place_img, String Place_img2, String Place_img3) {
+    public PlaceToVisit(String Place_name, String Cityname, String Place_Type, String Place_Description, String Place_Address, int tickets_Price, String Place_img, String Place_img2, String Place_img3) {
         this.Place_name = Place_name;
         this.Cityname = Cityname;
         this.Place_Type = Place_Type;
@@ -52,9 +52,7 @@ public class PlaceToVisit {
         this.Place_img3 = Place_img3;
     }
 
-    PlaceToVisit(int aInt, String string, String string0, String string1, String string2, Date date, String string3, String string4) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
-    }
+
 
     public int getPlace_Id() {
         return Place_Id;
@@ -104,11 +102,11 @@ public class PlaceToVisit {
         this.Place_Address = Place_Address;
     }
 
-    public double getTickets_Price() {
+    public int getTickets_Price() {
         return tickets_Price;
     }
 
-    public void setTickets_Price(double tickets_Price) {
+    public void setTickets_Price(int tickets_Price) {
         this.tickets_Price = tickets_Price;
     }
 

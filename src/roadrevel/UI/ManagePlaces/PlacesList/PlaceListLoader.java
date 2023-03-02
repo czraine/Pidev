@@ -1,4 +1,3 @@
-
 package roadrevel.UI.ManagePlaces.PlacesList;
 
 import javafx.application.Application;
@@ -8,15 +7,14 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 
-
 public class PlaceListLoader extends Application {
-    
+
     @Override
     public void start(Stage stage) throws Exception {
-        Parent root = FXMLLoader.load(getClass().getResource("/roadrevel/UI/ManagePlaces/PlacesList/Ajouter_Guide.fxml"));
-        
+        Parent root = FXMLLoader.load(getClass().getResource("/roadrevel/UI/ManagePlaces/PlacesList/Place_List.fxml"));
+
         Scene scene = new Scene(root);
-        
+
         stage.setScene(scene);
         stage.show();
     }
@@ -24,5 +22,5 @@ public class PlaceListLoader extends Application {
     public static void main(String[] args) {
         launch(args);
     }
-    
+
 }

@@ -46,7 +46,7 @@ public class SeeReviewsController implements Initializable {
           SingleUser hold = SingleUser.getInstance();
           User u = hold.getUser();
           Place_Name.setMaxWidth(200) ;
-        List<Reviews> list = sp.showByUser(p.getPlace_Id(),u.getUser_Id()) ;
+        List<Reviews> list = sp.showByPlace(p.getPlace_Id()) ;
         for( Reviews pv : list ){
             Place_Name.setText(pv.getPlace_Name());
             Rating rate = new Rating(5, (int) pv.getRating());

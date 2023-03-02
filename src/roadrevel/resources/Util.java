@@ -20,6 +20,7 @@ import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 import javafx.stage.Window;
 import javax.imageio.ImageIO;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -62,6 +63,7 @@ public class Util {
     fc.getExtensionFilters().add(new ExtensionFilter("Images ","*.jpg"));
     fc.getExtensionFilters().add(new ExtensionFilter("Images ","*.jpeg"));
     File f = fc.showOpenDialog(null);
+
     Image image = new Image(f.toURI().toString());
                FileChooser fileChooser = new FileChooser();
                fileChooser.getExtensionFilters().add(new ExtensionFilter("Images ","*.png"));

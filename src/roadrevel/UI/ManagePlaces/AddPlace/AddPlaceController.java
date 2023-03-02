@@ -8,18 +8,17 @@ package roadrevel.UI.ManagePlaces.AddPlace;
 import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXTextArea;
 import com.jfoenix.controls.JFXTextField;
-import java.io.File;
-import static java.lang.Double.parseDouble;
+import static java.lang.Integer.parseInt;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.Scene;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.StackPane;
-import javafx.stage.FileChooser;
 import javafx.stage.Stage;
 import roadrevel.entities.PlaceToVisit.PlaceToVisit;
 import roadrevel.entities.PlaceToVisit.ServicePlace;
@@ -72,7 +71,7 @@ public class AddPlaceController implements Initializable {
     private void choosefile(ActionEvent event) {
         Util u = new Util();
         res =  u.ImgPicker () ;
-        
+
 
     }
 
@@ -90,17 +89,61 @@ public class AddPlaceController implements Initializable {
 
     @FXML
     private void LoadSignIn(ActionEvent event) {
+  
+        int tp ;
         String  pn =  Place_Name.getText() ;
         String cn =  CityName.getText() ;
         String pt =  Place_Type.getText() ;
         String pd =  Place_Descrp.getText() ;
         String pa =  Place_Adress.getText() ;
-        Double tp =  parseDouble(Ticket_Price.getText()) ;
+               EventHandler<MouseEvent> Cfile = new EventHandler<MouseEvent>() {
+
+            @Override
+            public void handle(MouseEvent event) {
+        Util u = new Util();
+        res =  u.ImgPicker () ;            }
+        };
+        img1.setOnMouseClicked(Cfile);    
         String pi1 =   res ;
         String pi2 =  res2 ;
         String pi3 =  res3 ;
-               if (pn.isEmpty() || cn.isEmpty() || pt.isEmpty() || pd.isEmpty() || pa.isEmpty() ) {
-            AlertMaker.showMaterialDialog(rootPane, mainContainer, new ArrayList<>(), "Insufficient Data", "Please enter data in all fields.");
+               if (pn.isEmpty()  ) {
+            AlertMaker.showMaterialDialog(rootPane, mainContainer, new ArrayList<>(), "Insufficient Data", "Please enter Place Name.");
+            return;
+        }
+                              if (cn.isEmpty()  ) {
+            AlertMaker.showMaterialDialog(rootPane, mainContainer, new ArrayList<>(), "Insufficient Data", "Please enter City where the place is.");
+            return;
+        }               if ( pt.isEmpty()  ) {
+            AlertMaker.showMaterialDialog(rootPane, mainContainer, new ArrayList<>(), "Insufficient Data", "Please enter Type.");
+            return;
+        }               if (pd.isEmpty() ) {
+            AlertMaker.showMaterialDialog(rootPane, mainContainer, new ArrayList<>(), "Insufficient Data", "Please enter Place Description.");
+            return;
+        }
+                       if ( pa.isEmpty() ) {
+            AlertMaker.showMaterialDialog(rootPane, mainContainer, new ArrayList<>(), "Insufficient Data", "Please enter the Place Adress.");
+            return;
+        }
+            if ( Ticket_Price.getText().isEmpty() ) {
+            AlertMaker.showMaterialDialog(rootPane, mainContainer, new ArrayList<>(), "Insufficient Data", "Please enter the Ticket Price.");
+            return;
+        }else if (!(Ticket_Price.getText().matches("[0-9]+"))){
+                    AlertMaker.showMaterialDialog(rootPane, mainContainer, new ArrayList<>(), "Insufficient Data", "Ticket Price Must Be a Number");
+            return;
+        }
+        else{
+             tp =  Integer.parseInt(Ticket_Price.getText()) ;
+            }
+                          if ( pi1 == null  ) {
+            AlertMaker.showMaterialDialog(rootPane, mainContainer, new ArrayList<>(), "Insufficient Data", "Please enter an Image.");
+            return;
+        }               if (pi2 == null ) {
+            AlertMaker.showMaterialDialog(rootPane, mainContainer, new ArrayList<>(), "Insufficient Data", "Please enter a Second Image");
+            return;
+        }
+                       if ( pi3 == null ) {
+            AlertMaker.showMaterialDialog(rootPane, mainContainer, new ArrayList<>(), "Insufficient Data", "Please enter a Third Image");
             return;
         }
          if (isInEditMode) {
@@ -130,7 +173,7 @@ public class AddPlaceController implements Initializable {
         getStage().close();
     }
     private void handleEditOperation() {
-        PlaceToVisit place = new PlaceToVisit(id_place ,Place_Name.getText(), CityName.getText(), Place_Type.getText(), Place_Descrp.getText(), Place_Adress.getText(),parseDouble(Ticket_Price.getText()), res, res2,res3);
+        PlaceToVisit place = new PlaceToVisit(id_place ,Place_Name.getText(), CityName.getText(), Place_Type.getText(), Place_Descrp.getText(), Place_Adress.getText(),parseInt(Ticket_Price.getText()), res, res2,res3);
         sp.modifier(place) ;
             AlertMaker.showMaterialDialog(rootPane, mainContainer, new ArrayList<>(), "Success", "Update complete");
         
@@ -148,5 +191,7 @@ public class AddPlaceController implements Initializable {
        isInEditMode = Boolean.TRUE;  }
 
 
-    
+
+
 }
+

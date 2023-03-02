@@ -49,6 +49,7 @@ public class SeeReviewsController implements Initializable {
           Place_Name.setMaxWidth(200) ;
         List<Reviews> list = sp.showByPlace(p.getPlace_Id()) ;
         for( Reviews pv : list ){
+            System.out.println(pv.toString());
             Place_Name.setText(pv.getPlace_Name());
             Rating rate = new Rating(5, (int) pv.getRating());
             rate.setDisable(true);

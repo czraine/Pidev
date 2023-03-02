@@ -1,0 +1,52 @@
+.dark-background{
+    
+    -fx-background-color: #222222;
+}
+
+.jfx-hamburger {
+      -fx-spacing: 7;
+
+}
+.jfx-hamburger-icon StackPane{
+    
+        -fx-background-color: #46adc9;
+    -fx-background-radius: 5px;
+}
+.progress-bar-main .bar{
+    -fx-background-color: #222222;
+    -fx-padding: 5px;
+}.toolbar-button
+{
+    -fx-border-color: transparent;
+    -fx-background-color: derive(#46adc9, 10%);
+    -fx-background-radius: 16px;
+    -fx-border-radius: 10px;
+    -fx-text-fill: #ffffff;
+}
+.toolbar-button:hover
+{
+    -fx-background-color: #ffffff;
+    -fx-text-fill: #46adc9;
+   
+}
+
+.toolbar-button:hover .glyph-icon, .toolbar-button:hover .glyph-icon
+{
+    -fx-fill: #ffffff;
+}
+.scroll-pane{
+    
+    -fx-background-color: #222222;
+}
+.gradient{
+    
+    -fx-background-color: linear-gradient(to top , #222222,transparent); 
+}
+.shadow {
+    -fx-effect: dropshadow(three-pass-box , rgba(0,0,0,0.2),10,0,0,10);
+}
+.shadow:hover {
+        -fx-background-color: #ffffff;
+    -fx-text-fill: #46adc9;
+    
+}
