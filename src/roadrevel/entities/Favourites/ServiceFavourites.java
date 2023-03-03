@@ -60,8 +60,21 @@ public class ServiceFavourites implements IService<Favourites>{
 
     @Override
     public List<Favourites> afficher() {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
-    }
+        List<Favourites> list = new ArrayList<>();
+        
+        String req = "SELECT * FROM user_favsplaces";
+        try {
+            PreparedStatement pst = cnx.prepareStatement(req);
+            ResultSet result = pst.executeQuery();
+            while(result.next()) {
+                list.add(new Favourites(result.getInt("id_Favs"),result.getInt("id_User"),result.getInt("id_Place")));
+            }
+            System.out.println("placetovisit récupérées !");
+        } catch (SQLException ex) {
+            System.out.println(ex.getMessage());
+        }
+        
+        return list;    }
         public boolean validate(int uid , int pid) {
          
         String vd = "SELECT * FROM user_favsplaces WHERE id_User= ? and id_Place= ?";

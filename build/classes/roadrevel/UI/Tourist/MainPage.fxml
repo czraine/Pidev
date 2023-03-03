@@ -81,7 +81,7 @@
                                        </children>
                                     </VBox>
                                     <Pane prefHeight="200.0" prefWidth="200.0" HBox.hgrow="ALWAYS" />
-                                    <JFXButton onAction="#HandleFilter" prefHeight="41.0" prefWidth="84.0" styleClass="toolbar-button" text="Filter" textFill="#46adc9">
+                                    <JFXButton prefHeight="41.0" prefWidth="84.0" styleClass="toolbar-button" text="  " textFill="#46adc9">
                                        <font>
                                           <Font name="System Bold" size="18.0" />
                                        </font>

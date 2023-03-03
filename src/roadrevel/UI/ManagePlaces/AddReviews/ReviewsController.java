@@ -6,6 +6,8 @@ package roadrevel.UI.ManagePlaces.AddReviews;
 
 import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXTextArea;
+import java.io.UnsupportedEncodingException;
+import java.net.MalformedURLException;
 import java.net.URL;
 import java.sql.Date;
 import java.time.LocalDate;
@@ -17,6 +19,8 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.stage.Stage;
 import org.controlsfx.control.Rating;
+import org.json.simple.parser.ParseException;
+import roadrevel.api.TextFilter;
 import roadrevel.entities.PlaceToVisit.PlaceToVisit;
 import roadrevel.entities.PlaceToVisit.Reviews.Reviews;
 import roadrevel.entities.PlaceToVisit.Reviews.ServiceReviews;
@@ -55,7 +59,7 @@ public class ReviewsController implements Initializable {
     }    
 
     @FXML
-    private void LoadAddReview(ActionEvent event) {
+    private void LoadAddReview(ActionEvent event) throws MalformedURLException, UnsupportedEncodingException, ParseException {
 long millis=System.currentTimeMillis(); 
 java.sql.Date Review_date = new java.sql.Date(millis); 
           SinglePlace holder = SinglePlace.getInstance();
@@ -71,7 +75,9 @@ java.sql.Date Review_date = new java.sql.Date(millis);
           }
         Rating = PlaceRate.getRating() ;
         cmnts = Comments.getText() ;
-        sr.ajouter(new Reviews(p.getPlace_name(), Rating, cmnts, p.getPlace_Id(),Review_date,u.getUser_Id()));
+        TextFilter txtf = new TextFilter();
+        String filtredcmnts = txtf.GetTwi(cmnts) ;
+        sr.ajouter(new Reviews(p.getPlace_name(), Rating, filtredcmnts, p.getPlace_Id(),Review_date,u.getUser_Id()));
         closeStage();
     }
         private void closeStage() {

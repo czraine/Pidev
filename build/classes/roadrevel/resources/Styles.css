@@ -7,6 +7,14 @@
       -fx-spacing: 7;
 
 }
+.texto{
+	-fx-accent: #007acc;
+        -fx-font-size : 18 ; 
+            -fx-text-fill: #ffffff;
+
+	-fx-background-color: -fx-grey-color, white;
+	-fx-background-insets: 0, 0 0 1 0;
+	-fx-background-radius: 0;}
 .profile-pic{
     
     -fx-border-radius: 40px;

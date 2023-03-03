@@ -84,20 +84,37 @@ public class ServicePlace implements IService<PlaceToVisit> {
     @Override
     public List<PlaceToVisit> afficher() {
         List<PlaceToVisit> list = new ArrayList<>();
-        
+
         String req = "SELECT * FROM placetovisit";
         try {
             PreparedStatement pst = cnx.prepareStatement(req);
             ResultSet result = pst.executeQuery();
-            while(result.next()) {
-                list.add(new PlaceToVisit(result.getInt("Place_Id"), result.getString("Place_Name"), result.getString("CityName"),result.getString("Place_Type"), result.getString("Place_Description"), result.getString("Place_Address"), result.getInt("Tickets_Price"), result.getString("Place_Img"), result.getString("Place_img2"), result.getString("Place_Img3")));
+            while (result.next()) {
+                list.add(new PlaceToVisit(result.getInt("Place_Id"), result.getString("Place_Name"), result.getString("CityName"), result.getString("Place_Type"), result.getString("Place_Description"), result.getString("Place_Address"), result.getInt("Tickets_Price"), result.getString("Place_Img"), result.getString("Place_img2"), result.getString("Place_Img3")));
             }
             System.out.println("placetovisit récupérées !");
         } catch (SQLException ex) {
             System.out.println(ex.getMessage());
         }
-        
+
         return list;
     }
-}
 
+    public PlaceToVisit Search(String cname) {
+
+        String req = "SELECT * FROM placetovisit where CityName =? ";
+        try {
+            PreparedStatement pst = cnx.prepareStatement(req);
+            pst.setString(1, cname);
+
+            ResultSet result = pst.executeQuery();
+            while (result.next()) {
+                return new PlaceToVisit(result.getInt("Place_Id"), result.getString("Place_Name"), result.getString("CityName"), result.getString("Place_Type"), result.getString("Place_Description"), result.getString("Place_Address"), result.getInt("Tickets_Price"), result.getString("Place_Img"), result.getString("Place_img2"), result.getString("Place_Img3"));
+            }
+            System.out.println("placetovisit récupérées !");
+        } catch (SQLException ex) {
+            System.out.println(ex.getMessage());
+        }
+
+        return null ;   }
+}

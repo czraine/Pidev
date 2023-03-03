@@ -14,8 +14,13 @@ import com.jfoenix.transitions.hamburger.HamburgerSlideCloseTransition;
 import roadrevel.UI.NewMain.Pane.PlaceController;
 import java.io.IOException;
 import java.net.URL;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.ResourceBundle;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
+import javafx.collections.transformation.FilteredList;
+import javafx.collections.transformation.SortedList;
 import javafx.event.ActionEvent;
 import javafx.event.Event;
 import javafx.fxml.FXML;
@@ -40,7 +45,7 @@ import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 import roadrevel.entities.PlaceToVisit.PlaceToVisit;
 import roadrevel.entities.PlaceToVisit.ServicePlace;
-
+import roadrevel.resources.AlertMaker;
 
 /**
  * FXML Controller class
@@ -55,7 +60,7 @@ public class MainPageController implements Initializable {
     private GridPane PlacesGrid;
     @FXML
     private Label nbPst;
-    Image image ;
+    Image image;
     @FXML
     private StackPane rootPane;
     @FXML
@@ -72,15 +77,17 @@ public class MainPageController implements Initializable {
     private Tab bookIssueTab;
     @FXML
     private Tab renewTab;
+    private JFXTextField Search;
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-initDrawer();
-        loadData();
+       list = sp.afficher();
+        initDrawer();
+        loadData(list);
     }
 
-    public void loadData() {
-        list = sp.afficher();
+    public void loadData( List<PlaceToVisit> list) {
+      
         int colmn = 0;
         int row = 1;
         nbPst.setText(list.size() + " posts ");
@@ -91,7 +98,7 @@ initDrawer();
                 Pane pane = loader.load();
                 PlaceController plc = loader.getController();
                 plc.setData(place);
-                System.out.println("colmn  "+colmn +" row  "+ row);
+                System.out.println("colmn  " + colmn + " row  " + row);
                 if (colmn == 3) {
                     colmn = 0;
                     row++;
@@ -104,11 +111,12 @@ initDrawer();
         }
 
     }
-            private void initDrawer() {
 
-      image = new Image ("roadrevel/resources/logoRoad.png");
-            
-            try {
+    private void initDrawer() {
+
+        image = new Image("roadrevel/resources/logoRoad.png");
+
+        try {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/roadrevel/UI/NewMain/Toolbar/toolbar.fxml"));
             VBox toolbar = loader.load();
             drawer.setSidePane(toolbar);
@@ -136,21 +144,26 @@ initDrawer();
 
     @FXML
     private void HandleLoginOperation(ActionEvent event) {
-                        try {
+        try {
             Parent parent = FXMLLoader.load(getClass().getResource("/roadrevel/UI/Login/login.fxml"));
             Stage stage = new Stage(StageStyle.DECORATED);
             stage.setTitle("RoadRevel");
             stage.setScene(new Scene(parent));
             stage.show();
             closeStage();
-        }
-        catch (IOException ex) {
+        } catch (IOException ex) {
             ex.getMessage();
         }
     }
-  public void closeStage() {
-         
+
+    public void closeStage() {
+
         ((Stage) drawer.getScene().getWindow()).close();
     }
 
-}
+    
+
+
+    }
+
+

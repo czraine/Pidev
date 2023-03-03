@@ -94,7 +94,7 @@ public class Favs_listController implements Initializable {
         list.clear();
         boolean flag = sf.checkfavs(u.getUser_Id());
         if (flag){
-        String req = "SELECT * FROM placetovisit where Place_id=( Select id_Place FROM user_favsplaces where id_User=?  ) ";
+        String req = "SELECT * FROM placetovisit where Place_id IN( Select id_Place FROM user_favsplaces where id_User=?  ) ";
   
                     PreparedStatement pst;
         try {

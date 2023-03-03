@@ -7,6 +7,7 @@ package roadrevel.UI.Admin;
 import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXDrawer;
 import com.jfoenix.controls.JFXHamburger;
+import com.jfoenix.controls.JFXTabPane;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -15,25 +16,27 @@ import java.util.List;
 import java.util.Optional;
 import javafx.event.ActionEvent;
 import javafx.event.Event;
-import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.geometry.Insets;
 import javafx.scene.control.Alert;
 import javafx.scene.control.ButtonType;
 import javafx.scene.control.Label;
-import javafx.scene.control.Tab;
-import javafx.scene.control.TextArea;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
-import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.BorderPane;
+import javafx.scene.layout.GridPane;
+import javafx.scene.layout.Pane;
 import javafx.scene.layout.StackPane;
 import javafx.scene.layout.VBox;
+import javafx.scene.paint.ImagePattern;
+import javafx.scene.shape.Circle;
 import javafx.stage.Stage;
+import roadrevel.UI.NewMain.Pane.PlaceController;
 import roadrevel.entities.PlaceToVisit.PlaceToVisit;
 import roadrevel.entities.PlaceToVisit.ServicePlace;
-import roadrevel.entities.SinglePlace;
 import roadrevel.entities.SingleUser;
 import roadrevel.entities.User.User;
 import roadrevel.resources.Util;
@@ -45,51 +48,18 @@ import roadrevel.resources.Util;
  * @author Nasr
  */
 public class AdminPageController implements Initializable {
-
+    private List<PlaceToVisit> list;
+    ServicePlace sp = new ServicePlace();
     @FXML
     private StackPane rootPane;
     @FXML
-    private AnchorPane rootAnchorPane;
+    private BorderPane rootAnchorPane;
     @FXML
     private JFXDrawer drawer;
     @FXML
     private JFXHamburger hamburger;
-    @FXML
-    private Tab placetab;
-    @FXML
-    private ImageView placeimg;
-    @FXML
-    private ImageView placeimg2;
-    @FXML
-    private ImageView placeimg3;
-    @FXML
-    private Label Cityname;
-    @FXML
-    private Label placeadres;
-    @FXML
-    private Label TicketP;
-    @FXML
-    private TextArea Placedescp;
-    @FXML
-    private Label PlaceName;
-    @FXML
-    private JFXButton previous;
-    @FXML
-    private JFXButton Next;
-    @FXML
-    private Label TicketP1;
-    @FXML
-    private JFXButton Rate;
-    @FXML
-    private JFXButton Review;
-    @FXML
-    private AnchorPane EventAnchor;
-    @FXML
-    private AnchorPane PlanAnchor;
-    @FXML
-    private AnchorPane ShopAnchor;
 
-        ServicePlace sp = new ServicePlace();
+
         List<PlaceToVisit> lp ;
             Image image , image2 , image3 ;
              boolean flag;
@@ -97,6 +67,18 @@ public class AdminPageController implements Initializable {
     User u = hold.getUser();
 
     int i = 0 ;
+    @FXML
+    private ImageView imagePI;
+    @FXML
+    private Circle UserLogo;
+    @FXML
+    private JFXTabPane mainTabPane;
+    @FXML
+    private Label nbPst;
+    @FXML
+    private GridPane PlacesGrid;
+    @FXML
+    private JFXButton logout;
 
 
 
@@ -108,53 +90,40 @@ public class AdminPageController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         initDrawer()  ;
-        initPlace(i);
+        loadData();
 
 
     }    
-        private void initPlace( int id){
-         lp = sp.afficher();
-        if (id == 0 ){
-        previous.setOpacity(0); 
-        }else {previous.setOpacity(1);}
-        if ( id == lp.size()-1 ){
-        Next.setOpacity(0);
-        }else {Next.setOpacity(1);}
 
-        image = new Image (lp.get(id).getPlace_img());
-        image2 = new Image (lp.get(id).getPlace_img2());
-        image3 = new Image (lp.get(id).getPlace_img3());
-        PlaceName.setText(lp.get(id).getPlace_name());
-        Cityname.setText(lp.get(id).getCityname());
-        Placedescp.setText(lp.get(id).getPlace_Description());
-        placeadres.setText(lp.get(id).getPlace_Address());
-        TicketP.setText(String.valueOf(lp.get(id).getTickets_Price()));
-        placeimg.setImage(image);
-        placeimg2.setImage(image2);
-        placeimg3.setImage(image3);
-        EventHandler<ActionEvent> Grate = new EventHandler<ActionEvent>() {
-            public void handle(ActionEvent e)
-            {
-                SinglePlace holder = SinglePlace.getInstance();
-                holder.setPlace(lp.get(id));
-             Util.loadWindow(getClass().getResource("/roadrevel/UI/ManagePlaces/AddReviews/Add_Reviews.fxml"), "Add New Place", null);
 
+   public void loadData() {
+                   UserLogo.setStroke(javafx.scene.paint.Color.LIGHTSKYBLUE);
+        UserLogo.setFill(new ImagePattern(new Image("/roadrevel/resources/admin-icon.png")));
+        list = sp.afficher();
+        int colmn = 0;
+        int row = 1;
+        nbPst.setText(list.size() + " posts ");
+        try {
+            for (PlaceToVisit place : list) {
+                FXMLLoader loader = new FXMLLoader();
+                loader.setLocation(getClass().getResource("/roadrevel/UI/NewMain/Pane/Place.fxml"));
+                Pane pane = loader.load();
+                PlaceController plc = loader.getController();
+                plc.setData(place);
+                System.out.println("colmn  "+colmn +" row  "+ row);
+                if (colmn == 3) {
+                    colmn = 0;
+                    row++;
+                }
+                PlacesGrid.add(pane, colmn++, row);
+                GridPane.setMargin(pane, new Insets(20));
             }
-        };
-                EventHandler<ActionEvent> SReviws = new EventHandler<ActionEvent>() {
-            public void handle(ActionEvent e)
-            {
-                SinglePlace holder = SinglePlace.getInstance();
-                holder.setPlace(lp.get(id));
-             Util.loadWindow(getClass().getResource("/roadrevel/UI/ManagePlaces/SeeAllReviews/SeeReviews.fxml"), "Add New Place", null);
+        } catch (IOException ex) {
+            System.out.println(ex.getMessage());
+        }
 
-            }
-        };
-        Rate.setOnAction(Grate);
-        Review.setOnAction(SReviws);
-
-    
     }
+
         private void initDrawer() {
         try {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/roadrevel/UI/Admin/Toolbar/toolbar.fxml"));
@@ -182,38 +151,29 @@ public class AdminPageController implements Initializable {
     }
 
 
-    @FXML
-    private void movebackward(ActionEvent event) {
-        
-                i = i -1 ; 
-        initPlace(i);
-         System.out.println("let's go back  ");
-    }
-
-    @FXML
-    private void moveforward(ActionEvent event) {
-        i ++ ; 
-        initPlace(i);
-         System.out.println("here we go ");
-
-    }
-    @FXML
-    private void loadRatePage(ActionEvent event) {
-    }
   public void closeStage() {
          
         ((Stage) drawer.getScene().getWindow()).close();
     }
+  
+
     @FXML
-    private void handleLogOut(ActionEvent event) {
-                Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+    private void HandleLogOut(ActionEvent event) {
+                        Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
         alert.setTitle("Log Out");
-        alert.setContentText("Are you sure want to Log Out ?");
+        alert.setContentText("Are you sure want to log Out ?");
         Optional<ButtonType> answer = alert.showAndWait();
         if (answer.get() == ButtonType.OK) {
-                    Util.loadWindow(getClass().getResource("/roadrevel/UI/Main/MainPage.fxml"), "Add New Place", null);
-                    closeStage();
+        Util.loadWindow(getClass().getResource("/roadrevel/UI/NewMain/MainPage.fxml"), "Add New Place", null);
+        closeStage();
+
 
     }
     }
+
+
+
+
+
+
 }

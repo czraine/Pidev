@@ -19,6 +19,8 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.collections.transformation.FilteredList;
+import javafx.collections.transformation.SortedList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -56,10 +58,6 @@ public class View_PlacesController implements Initializable {
 
     @FXML
     private JFXTextField SearchName;
-    @FXML
-    private PrefixSelectionChoiceBox<String> filterchoie;
-    @FXML
-    private JFXButton Searchbtn;
 
 
 
@@ -125,6 +123,46 @@ public class View_PlacesController implements Initializable {
         }
             
         tableView.setItems(list);
+                // Wrap the ObservableList in a FilteredList (initially display all data).
+        FilteredList<PlaceToVisit> filteredData = new FilteredList<>(list, b -> true);
+		
+		// 2. Set the filter Predicate whenever the filter changes.
+		SearchName.textProperty().addListener((observable, oldValue, newValue) -> {
+			filteredData.setPredicate(Place -> {
+				// If filter text is empty, display all persons.
+								
+				if (newValue == null || newValue.isEmpty()) {
+					return true;
+				}
+				
+				// Compare first name and last name of every person with filter text.
+				String lowerCaseFilter = newValue.toLowerCase();
+				
+				if (Place.getPlace_name().toLowerCase().indexOf(lowerCaseFilter) != -1 ) {
+					return true; // Filter matches first name.
+				} else if (Place.getCityname().toLowerCase().indexOf(lowerCaseFilter) != -1) {
+					return true; // Filter matches last name.
+				} else if (Place.getPlace_Type().toLowerCase().indexOf(lowerCaseFilter) != -1) {
+					return true; // Filter matches last name.
+				} else if (Place.getPlace_Address().toLowerCase().indexOf(lowerCaseFilter) != -1) {
+					return true; // Filter matches last name.
+				} 
+				else if (String.valueOf(Place.getTickets_Price()).indexOf(lowerCaseFilter)!=-1)
+				     return true;
+				     else  
+				    	 return false; // Does not match.
+			});
+		});
+		
+		// 3. Wrap the FilteredList in a SortedList. 
+		SortedList<PlaceToVisit> sortedData = new SortedList<>(filteredData);
+		
+		// 4. Bind the SortedList comparator to the TableView comparator.
+		// 	  Otherwise, sorting the TableView would have no effect.
+		sortedData.comparatorProperty().bind(tableView.comparatorProperty());
+		
+		// 5. Add sorted (and filtered) data to the table.
+		tableView.setItems(sortedData);
     }
 
      @FXML
@@ -163,10 +201,16 @@ public class View_PlacesController implements Initializable {
     private void handleFavs(ActionEvent event) {
         System.out.println(u.toString());
         id = tableView.getSelectionModel().getSelectedItem().getPlace_Id();
-
+        SingleUser hold = SingleUser.getInstance();
+          User u = hold.getUser();
+        boolean flag = sf.validate(u.getUser_Id(), id);
+        if (flag){
+                 AlertMaker.showErrorMessage("Failure", " Places Already in Favourites ");
+                 return;
+        }else{
         sf.ajouter(new Favourites(u.getUser_Id(), id));
          AlertMaker.showErrorMessage("Success", " Places added To favourites  ");
-        
+        }
     }
 
 }

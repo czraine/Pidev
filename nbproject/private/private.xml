@@ -3,30 +3,10 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/mayah/OneDrive/Documents/NetBeansProjects/RoadRevel/src/roadrevel/UI/ManagePlaces/SeeReviews/SeeReviewsController.java</file>
-            <file>file:/C:/Users/mayah/OneDrive/Documents/NetBeansProjects/RoadRevel/src/roadrevel/resources/AlertMaker.java</file>
-            <file>file:/C:/Users/mayah/OneDrive/Documents/NetBeansProjects/RoadRevel/src/roadrevel/entities/Place.java</file>
-            <file>file:/C:/Users/mayah/OneDrive/Documents/NetBeansProjects/RoadRevel/src/roadrevel/UI/ManagePlaces/ViewPlaces/View_PlacesController.java</file>
-            <file>file:/C:/Users/mayah/OneDrive/Documents/NetBeansProjects/RoadRevel/src/roadrevel/UI/NewMain/MainPageController.java</file>
-            <file>file:/C:/Users/mayah/OneDrive/Documents/NetBeansProjects/RoadRevel/src/roadrevel/UI/Tourist/touristloader.java</file>
-            <file>file:/C:/Users/mayah/OneDrive/Documents/NetBeansProjects/RoadRevel/src/roadrevel/UI/ManagePlaces/ViewPlaces/NewFXMain.java</file>
-            <file>file:/C:/Users/mayah/OneDrive/Documents/NetBeansProjects/RoadRevel/src/roadrevel/UI/ManagePlaces/PlacesList/PlaceListLoader.java</file>
-            <file>file:/C:/Users/mayah/OneDrive/Documents/NetBeansProjects/RoadRevel/src/roadrevel/api/Weather.java</file>
-            <file>file:/C:/Users/mayah/OneDrive/Documents/NetBeansProjects/RoadRevel/src/roadrevel/UI/ManagePlaces/ViewPlaces/View_SingleController.java</file>
-            <file>file:/C:/Users/mayah/OneDrive/Documents/NetBeansProjects/RoadRevel/src/roadrevel/UI/Main/MainPageController.java</file>
-            <file>file:/C:/Users/mayah/OneDrive/Documents/NetBeansProjects/RoadRevel/src/roadrevel/entities/SingleUser.java</file>
-            <file>file:/C:/Users/mayah/OneDrive/Documents/NetBeansProjects/RoadRevel/src/roadrevel/entities/PlaceToVisit/PlaceToVisit.java</file>
-            <file>file:/C:/Users/mayah/OneDrive/Documents/NetBeansProjects/RoadRevel/src/roadrevel/UI/NewMain/PlaceListLoader.java</file>
-            <file>file:/C:/Users/mayah/OneDrive/Documents/NetBeansProjects/RoadRevel/src/roadrevel/UI/ManagePlaces/PlacesList/PlaceListController.java</file>
-            <file>file:/C:/Users/mayah/OneDrive/Documents/NetBeansProjects/RoadRevel/src/roadrevel/resources/Util.java</file>
-            <file>file:/C:/Users/mayah/OneDrive/Documents/NetBeansProjects/RoadRevel/src/roadrevel/entities/PlaceToVisit/ServicePlace.java</file>
-            <file>file:/C:/Users/mayah/OneDrive/Documents/NetBeansProjects/RoadRevel/src/roadrevel/Main/Main.java</file>
-            <file>file:/C:/Users/mayah/OneDrive/Documents/NetBeansProjects/RoadRevel/src/roadrevel/UI/ManagePlaces/ViewPlaces/Favs/Favs_listController.java</file>
-            <file>file:/C:/Users/mayah/OneDrive/Documents/NetBeansProjects/RoadRevel/src/roadrevel/UI/NewMain/MainPage.fxml</file>
-            <file>file:/C:/Users/mayah/OneDrive/Documents/NetBeansProjects/RoadRevel/src/roadrevel/UI/NewMain/Pane/PlaceController.java</file>
-            <file>file:/C:/Users/mayah/OneDrive/Documents/NetBeansProjects/RoadRevel/src/roadrevel/resources/Styles.css</file>
-            <file>file:/C:/Users/mayah/OneDrive/Documents/NetBeansProjects/RoadRevel/src/roadrevel/Main/MainProg.java</file>
-            <file>file:/C:/Users/mayah/OneDrive/Documents/NetBeansProjects/RoadRevel/src/roadrevel/resources/dark-theme.css</file>
+            <file>file:/C:/Users/mayah/OneDrive/Documents/NetBeansProjects/RoadRevel/src/roadrevel/UI/Admin/OldAdminPageController.java</file>
+            <file>file:/C:/Users/mayah/OneDrive/Documents/NetBeansProjects/RoadRevel/src/roadrevel/api/TextFilter.java</file>
+            <file>file:/C:/Users/mayah/OneDrive/Documents/NetBeansProjects/RoadRevel/src/roadrevel/UI/Admin/AdminPageController.java</file>
+            <file>file:/C:/Users/mayah/OneDrive/Documents/NetBeansProjects/RoadRevel/src/roadrevel/api/CurrencyConverter.java</file>
         </group>
     </open-files>
 </project-private>

@@ -4,16 +4,23 @@
  */
 package roadrevel.resources;
 
+import com.jfoenix.controls.JFXButton;
+import java.awt.Desktop;
 import java.io.File;
 import java.io.IOException;
 import java.net.URL;
+import java.util.Arrays;
+import java.util.List;
 import javafx.embed.swing.SwingFXUtils;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXMLLoader;
+import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.layout.StackPane;
 import javafx.stage.FileChooser;
 import javafx.stage.FileChooser.ExtensionFilter;
 import javafx.stage.Stage;
@@ -21,6 +28,7 @@ import javafx.stage.StageStyle;
 import javafx.stage.Window;
 import javax.imageio.ImageIO;
 import javax.swing.JOptionPane;
+import roadrevel.api.ListToPDF;
 
 /**
  *
@@ -59,9 +67,11 @@ public class Util {
         Stage secondStage = new Stage();
     ImageView imageView = new ImageView();
     FileChooser fc =new FileChooser() ;
-     fc.getExtensionFilters().add(new ExtensionFilter("Images ","*.png"));
-    fc.getExtensionFilters().add(new ExtensionFilter("Images ","*.jpg"));
-    fc.getExtensionFilters().add(new ExtensionFilter("Images ","*.jpeg"));
+     fc.getExtensionFilters().add(new ExtensionFilter("Image files (*.png)", "*.png"));
+    fc.getExtensionFilters().add(new ExtensionFilter("Image files (*.jpg)","*.jpg"));
+    fc.getExtensionFilters().add(new ExtensionFilter("Image files (*.jpeg)","*.jpeg"));
+    fc.getExtensionFilters().add(new ExtensionFilter("Image files (*.jfif)","*.jfif"));
+
     File f = fc.showOpenDialog(null);
 
     Image image = new Image(f.toURI().toString());
@@ -103,5 +113,26 @@ String str = file.getAbsolutePath();
 			return "string not found";
                 }
     }
-    
+      public static void initPDFExprot(StackPane rootPane, Node contentPane, Stage stage, List<List> data) {
+        FileChooser fileChooser = new FileChooser();
+        fileChooser.setTitle("Save as PDF");
+        FileChooser.ExtensionFilter extFilter
+                = new FileChooser.ExtensionFilter("PDF files (*.pdf)", "*.pdf");
+        fileChooser.getExtensionFilters().add(extFilter);
+        File saveLoc = fileChooser.showSaveDialog(stage);
+        ListToPDF ltp = new ListToPDF();
+        boolean flag = ltp.doPrintToPdf(data, saveLoc, ListToPDF.Orientation.LANDSCAPE);
+        JFXButton okayBtn = new JFXButton("Okay");
+        JFXButton openBtn = new JFXButton("View File");
+        openBtn.setOnAction((ActionEvent event1) -> {
+            try {
+                Desktop.getDesktop().open(saveLoc);
+            } catch (Exception exp) {
+                AlertMaker.showErrorMessage("Could not load file", "Cant load file");
+            }
+        });
+        if (flag) {
+            AlertMaker.showMaterialDialog(rootPane, contentPane, Arrays.asList(okayBtn, openBtn), "Completed", "Member data has been exported.");
+        }
+    }  
 }

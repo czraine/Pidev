@@ -57,7 +57,7 @@
          <center>
             <JFXTabPane fx:id="mainTabPane" BorderPane.alignment="CENTER">
                <tabs>
-                  <Tab fx:id="renewTab" closable="false" styleClass="tab-main" text="Renew / Submission">
+                  <Tab fx:id="renewTab" closable="false" styleClass="tab-main" text="Place To Visit">
                      <content>
                         <VBox focusTraversable="true" prefHeight="651.0" prefWidth="1300.0" stylesheets="@../../resources/Styles.css">
                            <children>
@@ -78,11 +78,15 @@
                                        </children>
                                     </VBox>
                                     <Pane prefHeight="200.0" prefWidth="200.0" HBox.hgrow="ALWAYS" />
-                                    <JFXButton prefHeight="41.0" prefWidth="84.0" styleClass="toolbar-button" text="Filter" textFill="#46adc9">
-                                       <font>
-                                          <Font name="System Bold" size="18.0" />
-                                       </font>
-                                    </JFXButton>
+                                    <HBox alignment="CENTER" prefHeight="95.0" prefWidth="94.0">
+                                       <children>
+                                          <JFXButton prefHeight="41.0" prefWidth="84.0" styleClass="toolbar-button" text="  " textFill="#46adc9">
+                                             <font>
+                                                <Font name="System Bold" size="18.0" />
+                                             </font>
+                                          </JFXButton>
+                                       </children>
+                                    </HBox>
                                  </children>
                                  <padding>
                                     <Insets left="30.0" right="30.0" />
@@ -101,7 +105,7 @@
                         </VBox>
                      </content>
                   </Tab>
-                  <Tab fx:id="bookIssueTab" closable="false" styleClass="tab-main" text="Book Issue">
+                  <Tab fx:id="bookIssueTab" closable="false" styleClass="tab-main" text="Shop">
                      <content>
                         <AnchorPane focusTraversable="true" minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="1300.0" />
                      </content>

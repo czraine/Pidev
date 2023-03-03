@@ -4,7 +4,6 @@
  */
 package roadrevel.UI.Tourist;
 
-import roadrevel.UI.Admin.*;
 import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXDrawer;
 import com.jfoenix.controls.JFXHamburger;
@@ -17,7 +16,6 @@ import java.util.List;
 import java.util.Optional;
 import javafx.event.ActionEvent;
 import javafx.event.Event;
-import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -25,12 +23,9 @@ import javafx.geometry.Insets;
 import javafx.scene.control.Alert;
 import javafx.scene.control.ButtonType;
 import javafx.scene.control.Label;
-import javafx.scene.control.Tab;
-import javafx.scene.control.TextArea;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
-import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.Pane;
@@ -39,18 +34,11 @@ import javafx.scene.layout.VBox;
 import javafx.scene.paint.ImagePattern;
 import javafx.scene.shape.Circle;
 import javafx.stage.Stage;
-import javax.swing.JOptionPane;
-import org.controlsfx.control.Rating;
-import static roadrevel.UI.Login.LoginController.infoBox;
 import roadrevel.UI.NewMain.Pane.PlaceController;
-import roadrevel.entities.Favourites.Favourites;
-import roadrevel.entities.Favourites.ServiceFavourites;
 import roadrevel.entities.PlaceToVisit.PlaceToVisit;
 import roadrevel.entities.PlaceToVisit.ServicePlace;
-import roadrevel.entities.SinglePlace;
 import roadrevel.entities.SingleUser;
 import roadrevel.entities.User.User;
-import roadrevel.resources.AlertMaker;
 import roadrevel.resources.Util;
 
 
@@ -183,9 +171,6 @@ public class TouristPageController implements Initializable {
     }
     }
 
-    @FXML
-    private void HandleFilter(ActionEvent event) {
-    }
 
 
 

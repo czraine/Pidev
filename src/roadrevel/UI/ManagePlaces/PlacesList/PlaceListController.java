@@ -1,17 +1,23 @@
 package roadrevel.UI.ManagePlaces.PlacesList;
 
+import com.jfoenix.controls.JFXTextField;
 import java.io.IOException;
 import java.net.URL;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
 import java.util.Optional;
 import java.util.ResourceBundle;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.collections.transformation.FilteredList;
+import javafx.collections.transformation.SortedList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -32,6 +38,7 @@ import roadrevel.database.DatabaseHandler;
 import roadrevel.entities.PlaceToVisit.PlaceToVisit;
 import roadrevel.entities.PlaceToVisit.ServicePlace;
 import roadrevel.resources.AlertMaker;
+import roadrevel.resources.Util;
 
 
 public class PlaceListController implements Initializable {
@@ -64,6 +71,8 @@ ServicePlace sp = new ServicePlace() ;
  private Connection cnx = DatabaseHandler.getInstance().getCnx();
     @FXML
     private TableColumn<PlaceToVisit, String> place_nameCol;
+    @FXML
+    private JFXTextField Search;
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
@@ -104,6 +113,46 @@ ServicePlace sp = new ServicePlace() ;
         }
             
         tableView.setItems(list);
+                  // Wrap the ObservableList in a FilteredList (initially display all data).
+        FilteredList<PlaceToVisit> filteredData = new FilteredList<>(list, b -> true);
+		
+		// 2. Set the filter Predicate whenever the filter changes.
+		Search.textProperty().addListener((observable, oldValue, newValue) -> {
+			filteredData.setPredicate(Place -> {
+				// If filter text is empty, display all persons.
+								
+				if (newValue == null || newValue.isEmpty()) {
+					return true;
+				}
+				
+				// Compare first name and last name of every person with filter text.
+				String lowerCaseFilter = newValue.toLowerCase();
+				
+				if (Place.getPlace_name().toLowerCase().indexOf(lowerCaseFilter) != -1 ) {
+					return true; // Filter matches first name.
+				} else if (Place.getCityname().toLowerCase().indexOf(lowerCaseFilter) != -1) {
+					return true; // Filter matches last name.
+				} else if (Place.getPlace_Type().toLowerCase().indexOf(lowerCaseFilter) != -1) {
+					return true; // Filter matches last name.
+				} else if (Place.getPlace_Address().toLowerCase().indexOf(lowerCaseFilter) != -1) {
+					return true; // Filter matches last name.
+				} 
+				else if (String.valueOf(Place.getTickets_Price()).indexOf(lowerCaseFilter)!=-1)
+				     return true;
+				     else  
+				    	 return false; // Does not match.
+			});
+		});
+		
+		// 3. Wrap the FilteredList in a SortedList. 
+		SortedList<PlaceToVisit> sortedData = new SortedList<>(filteredData);
+		
+		// 4. Bind the SortedList comparator to the TableView comparator.
+		// 	  Otherwise, sorting the TableView would have no effect.
+		sortedData.comparatorProperty().bind(tableView.comparatorProperty());
+		
+		// 5. Add sorted (and filtered) data to the table.
+		tableView.setItems(sortedData);
     }
     
     @FXML
@@ -169,8 +218,23 @@ ServicePlace sp = new ServicePlace() ;
 
     @FXML
     private void exportAsPDF(ActionEvent event) {
+                List<List> printData = new ArrayList<>();
+        String[] headers = {"   Place Name   ", "  City Name  ", "  Place type  ", "  Description ", "  address  ","   Ticket Price   " };
+        printData.add(Arrays.asList(headers));
+        for (PlaceToVisit place : list) {
+            List<String> row = new ArrayList<>();
+            row.add(place.getPlace_name());
+            row.add(place.getCityname());
+            row.add(place.getPlace_Type());
+            row.add(place.getPlace_Description());
+            row.add(place.getPlace_Address());
+            row.add(String.valueOf(place.getTickets_Price()));
+            printData.add(row);
+        }
+        Util.initPDFExprot(rootPane, contentPane, getStage(), printData);
+    }
     }
 
 
 
-}
+
