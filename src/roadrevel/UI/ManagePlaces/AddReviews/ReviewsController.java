@@ -23,6 +23,7 @@ import roadrevel.entities.PlaceToVisit.Reviews.ServiceReviews;
 import roadrevel.entities.SinglePlace;
 import roadrevel.entities.SingleUser;
 import roadrevel.entities.User.User;
+import roadrevel.resources.AlertMaker;
 
 /**
  * FXML Controller class
@@ -61,6 +62,13 @@ java.sql.Date Review_date = new java.sql.Date(millis);
           PlaceToVisit p = holder.getPlace();
            SingleUser hold = SingleUser.getInstance();
           User u = hold.getUser();
+          if (u == null){
+          AlertMaker.showErrorMessage("No User Has Been Found", "Please Login to Rate"); 
+           closeStage();
+          return;
+         
+          
+          }
         Rating = PlaceRate.getRating() ;
         cmnts = Comments.getText() ;
         sr.ajouter(new Reviews(p.getPlace_name(), Rating, cmnts, p.getPlace_Id(),Review_date,u.getUser_Id()));

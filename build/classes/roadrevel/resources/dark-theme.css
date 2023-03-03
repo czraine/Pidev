@@ -17,6 +17,7 @@
     -fx-fill: -fx-primarytext;
 }
 
+
 .button{
     -fx-text-fill: -fx-primarytext;
     -fx-background-color: -fx-primary;
@@ -40,9 +41,18 @@
     -fx-text-fill: derive(-fx-secondary, 20%);
 }
 
-.text-area{
-        -fx-text-fill: -fx-primarytext;
-    -fx-font-size : 12pt;
+.texto{
+        -fx-text-fill: #B2B2B2;
+
+    -fx-font-size : 22pt;
+    -jfx-focus-color: -fx-secondary;
+    -fx-text-fill: derive(-fx-secondary, 20%);
+    
+}
+.Labelo{
+        -fx-text-fill: #B2B2B2;
+        -fx-font-family :Arial Bold ;
+    -fx-font-size : 22pt;
     -jfx-focus-color: -fx-secondary;
     -fx-text-fill: derive(-fx-secondary, 20%);
     

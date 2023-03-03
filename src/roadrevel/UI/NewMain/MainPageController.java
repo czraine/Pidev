@@ -22,6 +22,8 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.geometry.Insets;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Label;
 import javafx.scene.control.Tab;
 import javafx.scene.image.Image;
@@ -34,6 +36,8 @@ import javafx.scene.layout.Pane;
 import javafx.scene.layout.StackPane;
 import javafx.scene.layout.VBox;
 import javafx.scene.text.Text;
+import javafx.stage.Stage;
+import javafx.stage.StageStyle;
 import roadrevel.entities.PlaceToVisit.PlaceToVisit;
 import roadrevel.entities.PlaceToVisit.ServicePlace;
 
@@ -68,32 +72,6 @@ public class MainPageController implements Initializable {
     private Tab bookIssueTab;
     @FXML
     private Tab renewTab;
-    @FXML
-    private JFXTextField bookID;
-    @FXML
-    private JFXButton renewButton;
-    @FXML
-    private JFXButton submissionButton;
-    @FXML
-    private HBox submissionDataContainer;
-    @FXML
-    private Text memberNameHolder;
-    @FXML
-    private Text memberEmailHolder;
-    @FXML
-    private Text memberContactHolder;
-    @FXML
-    private Text bookNameHolder;
-    @FXML
-    private Text bookAuthorHolder;
-    @FXML
-    private Text bookPublisherHolder;
-    @FXML
-    private Text issueDateHolder;
-    @FXML
-    private Text numberDaysHolder;
-    @FXML
-    private Text fineInfoHolder;
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
@@ -157,15 +135,22 @@ initDrawer();
     }
 
     @FXML
-    private void loadBookInfo2(ActionEvent event) {
+    private void HandleLoginOperation(ActionEvent event) {
+                        try {
+            Parent parent = FXMLLoader.load(getClass().getResource("/roadrevel/UI/Login/login.fxml"));
+            Stage stage = new Stage(StageStyle.DECORATED);
+            stage.setTitle("RoadRevel");
+            stage.setScene(new Scene(parent));
+            stage.show();
+            closeStage();
+        }
+        catch (IOException ex) {
+            ex.getMessage();
+        }
     }
-
-    @FXML
-    private void loadRenewOp(ActionEvent event) {
-    }
-
-    @FXML
-    private void loadSubmissionOp(ActionEvent event) {
+  public void closeStage() {
+         
+        ((Stage) drawer.getScene().getWindow()).close();
     }
 
 }

@@ -19,9 +19,9 @@ public class ToolbarController implements Initializable {
 
 
     @FXML
-    private void loadPlaceTable(ActionEvent event) {
-         System.out.println(" Show places List  ");
-        Util.loadWindow(getClass().getResource("/roadrevel/UI/ManagePlaces/ViewPlaces/View_Places.fxml"), " Place List ", null);
+    private void loadConverter(ActionEvent event) {
+                                System.out.println(" Convert Money ");
+        Util.loadWindow(getClass().getResource("/roadrevel/UI/Converter/Converter.fxml"), "Add New Place", null);
     }
 
 

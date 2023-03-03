@@ -1,4 +1,4 @@
-package roadrevel.UI.Login;
+    package roadrevel.UI.Login;
 
 import com.jfoenix.controls.JFXPasswordField;
 import com.jfoenix.controls.JFXTextField;
@@ -74,7 +74,7 @@ public class LoginController implements Initializable {
             
             Stage stage = new Stage(StageStyle.DECORATED);
             stage.setTitle("RoadRevel");
-            stage.setScene(new Scene(parent));
+            stage.setScene(new Scene(parent , 1445,833));
             stage.show();
             closeStage();
             Util.showAlert(Alert.AlertType.INFORMATION, ((Stage) username.getScene().getWindow()), "Success","Login Sucessful");
