@@ -4,122 +4,133 @@
 <?import com.jfoenix.controls.JFXDrawer?>
 <?import com.jfoenix.controls.JFXHamburger?>
 <?import com.jfoenix.controls.JFXTabPane?>
-<?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView?>
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
 <?import javafx.scene.control.Tab?>
-<?import javafx.scene.control.TextArea?>
-<?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.shape.Circle?>
 <?import javafx.scene.text.Font?>
 
-<StackPane fx:id="rootPane" focusTraversable="true" prefHeight="758.0" prefWidth="1263.0" stylesheets="@../../resources/dark-theme.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="roadrevel.UI.Main.MainPageController">
+<StackPane fx:id="rootPane" focusTraversable="true" minHeight="-Infinity" minWidth="-Infinity" stylesheets="@../../resources/Styles.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="roadrevel.UI.Main.MainPageController">
    <children>
-      <ImageView fitHeight="843.0" fitWidth="1266.0" focusTraversable="true" pickOnBounds="true">
-         <image>
-            <Image url="@../../resources/mainpic.jpeg" />
-         </image>
-      </ImageView>
-      <JFXDrawer fx:id="drawer" defaultDrawerSize="150.0" focusTraversable="true" resizableOnDrag="true" resizeContent="true" />
-      <AnchorPane fx:id="rootAnchorPane">
-         <children>
-            <JFXTabPane layoutX="53.0" layoutY="56.0" nodeOrientation="LEFT_TO_RIGHT" prefHeight="785.0" prefWidth="1214.0" rotateGraphic="true">
+      <JFXDrawer fx:id="drawer" resizableOnDrag="true" resizeContent="true" styleClass="jfx-drawer" />
+      <BorderPane fx:id="rootAnchorPane" focusTraversable="true" styleClass="dark-background" stylesheets="@../../resources/Styles.css">
+         <top>
+            <HBox alignment="CENTER_LEFT" focusTraversable="true" prefHeight="122.0" prefWidth="1200.0" BorderPane.alignment="CENTER">
+               <children>
+                  <HBox alignment="CENTER" prefHeight="131.0" prefWidth="171.0">
+                     <children>
+                        <JFXHamburger fx:id="hamburger" alignment="CENTER" fillWidth="false" prefHeight="87.0" prefWidth="86.0" styleClass="jfx-hamburger-icon" />
+                        <Label contentDisplay="CENTER" prefHeight="122.0" prefWidth="85.0" text="Menu" textFill="#46adc9">
+                           <font>
+                              <Font name="Arial Bold" size="19.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </HBox>
+                  <HBox alignment="CENTER" prefHeight="122.0" prefWidth="205.0">
+                     <children>
+                        <ImageView fx:id="imagePI" fitHeight="88.0" fitWidth="314.0" pickOnBounds="true" preserveRatio="true" />
+                     </children>
+                  </HBox>
+                  <Pane prefHeight="122.0" prefWidth="653.0" HBox.hgrow="ALWAYS" />
+                  <HBox alignment="CENTER" prefHeight="122.0" prefWidth="289.0">
+                     <children>
+                        <Circle fx:id="UserLogo" fill="#1fdeff" radius="37.0" stroke="BLACK" strokeType="INSIDE" />
+                        <Pane prefHeight="122.0" prefWidth="23.0" />
+                        <JFXButton fx:id="logout" onAction="#HandleLogOut" prefHeight="41.0" prefWidth="91.0" styleClass="toolbar-button" text="LogOut" textFill="#46adc9">
+                           <font>
+                              <Font name="System Bold" size="18.0" />
+                           </font>
+                        </JFXButton>
+                     </children>
+                  </HBox>
+               </children>
+            </HBox>
+         </top>
+         <center>
+            <JFXTabPane fx:id="mainTabPane" BorderPane.alignment="CENTER">
                <tabs>
-                  <Tab fx:id="placetab" text="Place To Visit">
+                  <Tab closable="false" styleClass="tab-main" text="Places To Visit">
                      <content>
-                        <AnchorPane focusTraversable="true" prefHeight="590.0" prefWidth="1232.0">
+                        <VBox focusTraversable="true" prefHeight="651.0" prefWidth="1300.0" stylesheets="@../../resources/Styles.css">
                            <children>
-                              <ImageView fx:id="placeimg" fitHeight="234.0" fitWidth="499.0" layoutY="1.0" pickOnBounds="true" smooth="false" />
-                              <ImageView fx:id="placeimg2" fitHeight="235.0" fitWidth="499.0" layoutY="219.0" pickOnBounds="true" smooth="false" />
-                              <ImageView fx:id="placeimg3" fitHeight="236.0" fitWidth="499.0" layoutY="454.0" pickOnBounds="true" smooth="false" />
-                              <Label fx:id="Cityname" layoutX="644.0" layoutY="165.0" text="CITYNAME" textFill="WHITE" wrapText="true">
-                                 <font>
-                                    <Font name="Arial Bold Italic" size="24.0" />
-                                 </font>
-                              </Label>
-                              <Label fx:id="placeadres" layoutX="644.0" layoutY="219.0" text="Place Address" textFill="WHITE" wrapText="true">
-                                 <font>
-                                    <Font name="Arial Bold Italic" size="24.0" />
-                                 </font>
-                              </Label>
-                              <Label fx:id="TicketP" layoutX="644.0" layoutY="295.0" prefHeight="34.0" prefWidth="124.0" text="Ticket Price" textFill="WHITE" wrapText="true">
-                                 <font>
-                                    <Font name="Arial Bold Italic" size="24.0" />
-                                 </font>
-                              </Label>
-                              <TextArea fx:id="Placedescp" editable="false" focusTraversable="false" layoutX="509.0" layoutY="391.0" mouseTransparent="true" pickOnBounds="false" prefHeight="293.0" prefWidth="693.0" text="Place Description" wrapText="true">
-                                 <font>
-                                    <Font name="Arial Bold Italic" size="20.0" />
-                                 </font>
-                                 <opaqueInsets>
-                                    <Insets />
-                                 </opaqueInsets>
-                              </TextArea>
-                              <Label fx:id="PlaceName" layoutX="555.0" layoutY="35.0" prefHeight="42.0" prefWidth="435.0" text="Place Name" textFill="WHITE" wrapText="true">
-                                 <font>
-                                    <Font name="Arial Bold Italic" size="33.0" />
-                                 </font>
-                              </Label>
-                              <JFXButton fx:id="previous" buttonType="RAISED" layoutX="14.0" layoutY="697.0" onAction="#movebackward" prefHeight="41.0" prefWidth="106.0" text="Back">
-                                 <graphic>
-                                    <FontAwesomeIconView glyphName="ARROW_LEFT" size="30" textAlignment="CENTER" wrappingWidth="44.2857141494751" />
-                                 </graphic></JFXButton>
-                              <JFXButton fx:id="Next" buttonType="RAISED" layoutX="1082.0" layoutY="697.0" onAction="#moveforward" prefHeight="41.0" prefWidth="118.0" text="Next" textAlignment="CENTER">
-                                 <graphic>
-                                    <FontAwesomeIconView glyphName="ARROW_RIGHT" size="30" text="" textAlignment="RIGHT" />
-                                 </graphic>
-                              </JFXButton>
-                              <Label fx:id="TicketP1" layoutX="752.0" layoutY="301.0" text="TND" textFill="WHITE">
-                                 <font>
-                                    <Font name="Arial Bold Italic" size="20.0" />
-                                 </font>
-                              </Label>
-                              <JFXButton fx:id="Review" layoutX="488.0" layoutY="698.0" prefHeight="41.0" prefWidth="156.0" text="Reviews" />
-                              <Label layoutX="1013.0" layoutY="101.0" prefHeight="51.0" prefWidth="101.0" text="Label" textFill="WHITE" wrapText="true">
-                                 <font>
-                                    <Font name="Arial Bold Italic" size="24.0" />
-                                 </font>
-                              </Label>
-
-
+                              <HBox alignment="CENTER" focusTraversable="true" prefHeight="95.0" prefWidth="1300.0">
+                                 <children>
+                                    <VBox alignment="CENTER" prefHeight="127.0" prefWidth="243.0">
+                                       <children>
+                                          <Label prefHeight="35.0" prefWidth="105.0" text="Traveling" textFill="#676767">
+                                             <font>
+                                                <Font name="System Bold" size="22.0" />
+                                             </font>
+                                          </Label>
+                                          <Label fx:id="nbPst" prefHeight="27.0" prefWidth="84.0" text="25 posts" textFill="#676767">
+                                             <font>
+                                                <Font size="18.0" />
+                                             </font>
+                                          </Label>
+                                       </children>
+                                    </VBox>
+                                    <Pane prefHeight="200.0" prefWidth="200.0" HBox.hgrow="ALWAYS" />
+                                    <JFXButton prefHeight="41.0" prefWidth="84.0" styleClass="toolbar-button" text="  " textFill="#46adc9">
+                                       <font>
+                                          <Font name="System Bold" size="18.0" />
+                                       </font>
+                                    </JFXButton>
+                                 </children>
+                                 <padding>
+                                    <Insets left="30.0" right="30.0" />
+                                 </padding>
+                              </HBox>
+                              <ScrollPane fitToHeight="true" fitToWidth="true" prefWidth="1300.0" VBox.vgrow="ALWAYS">
+                                 <content>
+                                    <GridPane fx:id="PlacesGrid" focusTraversable="true" styleClass="dark-background">
+                                      <rowConstraints>
+                                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                      </rowConstraints>
+                                    </GridPane>
+                                 </content>
+                              </ScrollPane>
                            </children>
-                        </AnchorPane>
+                        </VBox>
                      </content>
                   </Tab>
-                  <Tab text="Events">
-                    <content>
-                      <AnchorPane fx:id="EventAnchor" focusTraversable="true" minHeight="0.0" minWidth="0.0" opacity="0.0" prefHeight="0.0" prefWidth="1137.0" />
-                    </content>
-                  </Tab>
-                  <Tab text="Our Plans">
+                  <Tab closable="false" styleClass="tab-main" text="Events">
                      <content>
-                        <AnchorPane fx:id="PlanAnchor" blendMode="SCREEN" minHeight="0.0" minWidth="0.0" mouseTransparent="true" prefHeight="180.0" prefWidth="200.0" />
-                     </content>
-                  </Tab>
-                  <Tab text="Shop">
-                     <content>
-                        <AnchorPane fx:id="ShopAnchor" minHeight="0.0" minWidth="0.0" opacity="0.0" prefHeight="0.0" prefWidth="827.0" />
+                        <AnchorPane focusTraversable="true" minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="1300.0">
+                           <children>
+                              <VBox layoutX="-4.0" layoutY="-2.0" prefHeight="653.0" prefWidth="1307.0">
+                                 <children>
+                                    <HBox prefHeight="100.0" prefWidth="200.0">
+                                       <children>
+                                          <VBox alignment="CENTER" prefHeight="100.0" prefWidth="227.0">
+                                             <children>
+                                                <Label text="Event">
+                                                   <font>
+                                                      <Font name="System Bold" size="22.0" />
+                                                   </font>
+                                                </Label>
+                                             </children>
+                                          </VBox>
+                                       </children>
+                                    </HBox>
+                                 </children>
+                              </VBox>
+                           </children></AnchorPane>
                      </content>
                   </Tab>
                </tabs>
             </JFXTabPane>
-            <JFXHamburger fx:id="hamburger" layoutX="14.0" layoutY="6.0" prefHeight="41.0" prefWidth="38.0" styleClass="jfx-hamburger-icon" />
-            <BorderPane layoutX="53.0" opacity="0.45" prefHeight="60.0" prefWidth="1170.0" style="-fx-background-color: black;">
-               <left>
-                  <ImageView fx:id="imagePI" fitHeight="60.0" fitWidth="223.0" pickOnBounds="true" preserveRatio="true" BorderPane.alignment="CENTER" />
-               </left>
-               <right>
-                  <JFXButton fx:id="logIn" buttonType="RAISED" onAction="#Log" prefHeight="48.0" prefWidth="121.0" text="LogIn" textAlignment="CENTER" textFill="#cdc314" BorderPane.alignment="CENTER">
-                     <font>
-                        <Font name="Arial Bold Italic" size="25.0" />
-                     </font>
-                  </JFXButton>
-               </right>
-            </BorderPane>
-         </children>
-      </AnchorPane>
+         </center>
+      </BorderPane>
    </children>
 </StackPane>

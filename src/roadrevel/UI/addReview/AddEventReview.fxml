@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXTextArea?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="roadrevel.UI.addReview.AddEventReviewController">
+   <children>
+      <Button fx:id="submit" layoutX="521.0" layoutY="355.0" mnemonicParsing="false" onAction="#Submit" text="Submit" />
+      <Label layoutX="35.0" layoutY="101.0" text="Comment">
+         <font>
+            <Font name="System Bold" size="21.0" />
+         </font>
+      </Label>
+      <JFXTextArea fx:id="comment" layoutX="10.0" layoutY="187.0" prefHeight="150.0" prefWidth="580.0" />
+   </children>
+</AnchorPane>

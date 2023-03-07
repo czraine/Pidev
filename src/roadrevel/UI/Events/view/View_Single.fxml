@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane prefHeight="700.0" prefWidth="1200.0" stylesheets="@../../../resources/dark-theme.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="roadrevel.UI.Events.view.View_SingleController">
+   <children>
+      <ImageView fx:id="eventimg" fitHeight="230.0" fitWidth="548.0" layoutX="1.0" layoutY="5.0" pickOnBounds="true" smooth="false">
+         <image>
+            <Image url="@../../../resources/JCC2019-Photos-Tunis-25.jpg" />
+         </image></ImageView>
+      <ImageView fx:id="eventimg2" fitHeight="230.0" fitWidth="548.0" layoutX="1.0" layoutY="235.0" pickOnBounds="true" smooth="false">
+         <image>
+            <Image url="@../../../resources/jcc-2022-2-2000px.jpg" />
+         </image></ImageView>
+      <ImageView fx:id="eventimg3" fitHeight="230.0" fitWidth="548.0" layoutX="1.0" layoutY="464.0" pickOnBounds="true" smooth="false">
+         <image>
+            <Image url="@../../../resources/images.jpeg" />
+         </image></ImageView>
+      <Label fx:id="EventName" alignment="CENTER" layoutX="593.0" layoutY="91.0" prefHeight="42.0" prefWidth="435.0" styleClass="Labelo" text="Event Name" textFill="#141414" wrapText="true">
+         <font>
+            <Font name="Arial Bold Italic" size="24.0" />
+         </font>
+      </Label>
+      <JFXButton fx:id="Review" buttonType="RAISED" layoutX="1028.0" layoutY="645.0" onAction="#loadcommentPage" prefHeight="41.0" prefWidth="156.0" text="Comment" />
+      <Label fx:id="cityname" layoutX="853.0" layoutY="204.0" prefHeight="21.0" prefWidth="187.0" text="Label" />
+      <Label fx:id="Prix" layoutX="853.0" layoutY="288.0" prefHeight="21.0" prefWidth="125.0" text="Label" />
+      <Text layoutX="579.0" layoutY="210.0" strokeType="OUTSIDE" strokeWidth="0.0" text="CityName">
+         <font>
+            <Font name="System Bold" size="21.0" />
+         </font>
+      </Text>
+      <Text layoutX="586.0" layoutY="304.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Price">
+         <font>
+            <Font name="System Bold" size="20.0" />
+         </font>
+      </Text>
+      <Text layoutX="586.0" layoutY="424.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Event Description">
+         <font>
+            <Font size="20.0" />
+         </font>
+      </Text>
+      <Label fx:id="eventdescription" layoutX="853.0" layoutY="402.0" text="Label" />
+      <JFXButton fx:id="ReviewList" buttonType="RAISED" layoutX="563.0" layoutY="645.0" onAction="#ReviewListLoader" prefHeight="41.0" prefWidth="156.0" text="Review List" />
+   </children>
+</AnchorPane>
