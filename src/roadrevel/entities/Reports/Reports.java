@@ -5,7 +5,10 @@
 package roadrevel.entities.Reports;
 
 import java.sql.Date;
+import java.time.LocalDate;
 import java.util.Objects;
+import javafx.collections.ObservableList;
+import javafx.scene.control.DatePicker;
 
 /**
  *
@@ -19,9 +22,9 @@ public class Reports {
     private String Incident_type ; 
     private Date Incident_date ; 
     private String Incident_location ;
-    private String Tourist_name ; 
+    private int Id_User ; 
 
-    public Reports(int Report_id, String Report_Subject, String Report_Description, String Involvment, String Incident_type, Date Incident_date, String Incident_location, String Tourist_name) {
+    public Reports(int Report_id, String Report_Subject, String Report_Description, String Involvment, String Incident_type, Date Incident_date, String Incident_location, int id_User) {
         this.Report_id = Report_id;
         this.Report_Subject = Report_Subject;
         this.Report_Description = Report_Description;
@@ -29,22 +32,58 @@ public class Reports {
         this.Incident_type = Incident_type;
         this.Incident_date = Incident_date;
         this.Incident_location = Incident_location;
-        this.Tourist_name = Tourist_name;
+        this.Id_User = Id_User;
     }
 
     public Reports(int Report_id) {
         this.Report_id = Report_id;
     }
 
-    public Reports(String Report_Subject, String Report_Description, String Involvment, String Incident_type, Date Incident_date, String Incident_location, String Tourist_name) {
+    public Reports(int Report_id, String Report_Subject, String Report_Description, String Involvment, String Incident_location) {
+        this.Report_id = Report_id;
+        this.Report_Subject = Report_Subject;
+        this.Report_Description = Report_Description;
+        this.Involvment = Involvment;
+        this.Incident_location = Incident_location;
+    }
+
+    
+    
+
+    public Reports(String Report_Subject, String Report_Description, String Involvment, String Incident_type, Date Incident_date, String Incident_location, int Id_User) {
         this.Report_Subject = Report_Subject;
         this.Report_Description = Report_Description;
         this.Involvment = Involvment;
         this.Incident_type = Incident_type;
         this.Incident_date = Incident_date;
         this.Incident_location = Incident_location;
-        this.Tourist_name = Tourist_name;
+        this.Id_User = Id_User;
     }
+
+    public Reports(String Report_Subject, String Report_Description, String Involvment, String Incident_type, Date Incident_date, String Incident_location) {
+        this.Report_Subject = Report_Subject;
+        this.Report_Description = Report_Description;
+        this.Involvment = Involvment;
+        this.Incident_type = Incident_type;
+        this.Incident_date = Incident_date;
+        this.Incident_location = Incident_location;
+    }
+
+    public Reports(int Report_id, String text, String text0, String text1, DatePicker DatePicker, String value, int Id_User) {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
 
     public int getReport_id() {
         return Report_id;
@@ -102,17 +141,17 @@ public class Reports {
         this.Incident_location = Incident_location;
     }
 
-    public String getTourist_name() {
-        return Tourist_name;
+    public int getId_User() {
+        return Id_User;
     }
 
-    public void setTourist_name(String Tourist_name) {
-        this.Tourist_name = Tourist_name;
+    public void setId_User(int Id_User) {
+        this.Id_User = Id_User;
     }
 
     @Override
     public String toString() {
-        return "Reports{" + "Report_id=" + Report_id + ", Report_Subject=" + Report_Subject + ", Report_Description=" + Report_Description + ", Involvment=" + Involvment + ", Incident_type=" + Incident_type + ", Incident_date=" + Incident_date + ", Incident_location=" + Incident_location + ", Tourist_name=" + Tourist_name + '}';
+        return "Reports{" + "Report_id=" + Report_id + ", Report_Subject=" + Report_Subject + ", Report_Description=" + Report_Description + ", Involvment=" + Involvment + ", Incident_type=" + Incident_type + ", Incident_date=" + Incident_date + ", Incident_location=" + Incident_location + ", Id_User=" + Id_User + '}';
     }
 
     @Override
@@ -151,10 +190,13 @@ public class Reports {
         if (!Objects.equals(this.Incident_location, other.Incident_location)) {
             return false;
         }
-        if (!Objects.equals(this.Tourist_name, other.Tourist_name)) {
+        if (!Objects.equals(this.Id_User, other.Id_User)) {
             return false;
         }
         return Objects.equals(this.Incident_date, other.Incident_date);
     }
+
+    
+    
     
 }
