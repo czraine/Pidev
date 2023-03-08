@@ -3,10 +3,11 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/mayah/OneDrive/Documents/NetBeansProjects/RoadRevel/src/roadrevel/UI/Admin/OldAdminPageController.java</file>
-            <file>file:/C:/Users/mayah/OneDrive/Documents/NetBeansProjects/RoadRevel/src/roadrevel/api/TextFilter.java</file>
-            <file>file:/C:/Users/mayah/OneDrive/Documents/NetBeansProjects/RoadRevel/src/roadrevel/UI/Admin/AdminPageController.java</file>
-            <file>file:/C:/Users/mayah/OneDrive/Documents/NetBeansProjects/RoadRevel/src/roadrevel/api/CurrencyConverter.java</file>
+            <file>file:/C:/Users/mayah/OneDrive/Documents/NetBeansProjects/RoadRevel/src/roadrevel/UI/ManagePlaces/PlacesList/PlaceListController.java</file>
+            <file>file:/C:/Users/mayah/OneDrive/Documents/NetBeansProjects/RoadRevel/src/roadrevel/resources/Util.java</file>
+            <file>file:/C:/Users/mayah/OneDrive/Documents/NetBeansProjects/RoadRevel/src/roadrevel/UI/NewMain/MainPageController.java</file>
+            <file>file:/C:/Users/mayah/OneDrive/Documents/NetBeansProjects/RoadRevel/src/roadrevel/Main/Main.java</file>
+            <file>file:/C:/Users/mayah/OneDrive/Documents/NetBeansProjects/RoadRevel/src/roadrevel/UI/LogIn/LoginController.java</file>
         </group>
     </open-files>
 </project-private>

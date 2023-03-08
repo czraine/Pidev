@@ -30,7 +30,7 @@ public class ToolbarController implements Initializable {
     @FXML
     private void loadFavourites(ActionEvent event) {
                 System.out.println(" See My Favourite places  ");
-        Util.loadWindow(getClass().getResource("/roadrevel/UI/ManagePlaces/ViewPlaces/Favs/favs_list.fxml"), "Add New Place", null);
+        Util.loadWindow(getClass().getResource("/roadrevel/UI/ManagePlaces/ViewPlaces/Favs/favs_list.fxml"), " My favourites ", null);
     }
 
     @FXML

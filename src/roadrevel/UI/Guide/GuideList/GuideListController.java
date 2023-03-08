@@ -85,19 +85,19 @@ public class GuideListController implements Initializable {
         loadData();
 initCol();
     }
-    private void initCol() {
-        fnameCol.setCellValueFactory(new PropertyValueFactory<>("Fname"));
-        lanameCol.setCellValueFactory(new PropertyValueFactory<>("Lname"));
-        mailCol.setCellValueFactory(new PropertyValueFactory<>("Uemail"));
-        unameCol.setCellValueFactory(new PropertyValueFactory<>("UserName"));
-        pwdCol.setCellValueFactory(new PropertyValueFactory<>("Uphone"));
-        phoneCol.setCellValueFactory(new PropertyValueFactory<>("Uemail"));
-        lng1Col.setCellValueFactory(new PropertyValueFactory<>("lang1"));
-        lng2Col.setCellValueFactory(new PropertyValueFactory<>("lang2"));
-        lng3Col.setCellValueFactory(new PropertyValueFactory<>("lang3"));
-        CityCol.setCellValueFactory(new PropertyValueFactory<>("cityname"));
+        private void initCol() {
+            fnameCol.setCellValueFactory(new PropertyValueFactory<>("Fname"));
+            lanameCol.setCellValueFactory(new PropertyValueFactory<>("Lname"));
+            mailCol.setCellValueFactory(new PropertyValueFactory<>("Uemail"));
+            unameCol.setCellValueFactory(new PropertyValueFactory<>("UserName"));
+            pwdCol.setCellValueFactory(new PropertyValueFactory<>("Uphone"));
+            phoneCol.setCellValueFactory(new PropertyValueFactory<>("Uemail"));
+            lng1Col.setCellValueFactory(new PropertyValueFactory<>("lang1"));
+            lng2Col.setCellValueFactory(new PropertyValueFactory<>("lang2"));
+            lng3Col.setCellValueFactory(new PropertyValueFactory<>("lang3"));
+            CityCol.setCellValueFactory(new PropertyValueFactory<>("cityname"));
 
-    }
+        }
 
    private Stage getStage() {
         return (Stage) tableView.getScene().getWindow();
@@ -119,7 +119,8 @@ initCol();
     } catch (SQLException ex) {
 System.out.println(ex.getMessage()); }       
             
-        tableView.setItems(list);}
+        tableView.setItems(list);
+    }
     
     
     @FXML
@@ -129,19 +130,19 @@ System.out.println(ex.getMessage()); }
         if (selectedForDeletion == null) {
             JOptionPane.showMessageDialog(null,"No Place selected , Please select a Place for deletion.");
             return;
-        }
-
+            }
+            
         Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
         alert.setTitle("Deleting Place");
         alert.setContentText("Are you sure want to delete " + selectedForDeletion.getFname()+ " ?");
         Optional<ButtonType> answer = alert.showAndWait();
         if (answer.get() == ButtonType.OK) {
             sg.supprimer(selectedForDeletion);
-
+		
                 list.remove(selectedForDeletion);
-
+								
     }}
-
+				
     @FXML
     private void handleRefresh(ActionEvent event) {
         loadData();

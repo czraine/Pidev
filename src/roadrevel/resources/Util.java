@@ -48,7 +48,7 @@ public class Util {
                 stage = new Stage(StageStyle.DECORATED);
             }
             stage.setTitle(title);
-            stage.setScene(new Scene(parent));
+            stage.setScene(new Scene(parent ,1445,833));
             stage.show();
         } catch (IOException ex) {
             ex.getMessage();

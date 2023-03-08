@@ -21,7 +21,7 @@ public class ServiceReports implements IService<Reports>{
 
     @Override
     public void ajouter(Reports r) {
-        String req = "INSERT INTO reports( Report_Subject , Report_Description , Involvment , Incident_type, Incident_date , Incident_Location , Tourist_Name ) VALUES( ? ,? ,? ,? ,? ,? ,?);";
+        String req = "INSERT INTO reports( Report_Subject , Report_Description , Involvment , Incident_type, Incident_date , Incident_Location , Id_User ) VALUES( ? ,? ,? ,? ,? ,? ,?);";
         try {
             //Statement st = cnx.createStatement();
             PreparedStatement pst = cnx.prepareStatement(req);
@@ -31,7 +31,7 @@ public class ServiceReports implements IService<Reports>{
             pst.setString(4, r.getIncident_type());
             pst.setDate(5, r.getIncident_date());
             pst.setString(6, r.getIncident_location());
-            pst.setString(7, r.getTourist_name());
+            pst.setInt(7, r.getId_User());
             pst.executeUpdate();
             System.out.println("Report sent  !");
         } catch (SQLException ex) {
@@ -41,7 +41,7 @@ public class ServiceReports implements IService<Reports>{
 
     @Override
     public void modifier(Reports r) {
-        String req = "UPDATE  reports SET Report_Subject=?, Report_Description= ? , Involvment= ? , Incident_type= ? , Incident_date=? , Incident_Location= ? , Tourist_Name= ? WHERE Report_Id =?";
+        String req = "UPDATE  reports SET Report_Subject=?, Report_Description= ? , Involvment= ? , Incident_type= ? , Incident_date=? , Incident_Location= ? , Id_User= ? WHERE Report_Id =?";
         try {
             PreparedStatement pst = cnx.prepareStatement(req);
             pst.setString(1, r.getReport_Subject());
@@ -50,7 +50,7 @@ public class ServiceReports implements IService<Reports>{
             pst.setString(4, r.getIncident_type());
             pst.setDate(5, r.getIncident_date());
             pst.setString(5, r.getIncident_location());
-            pst.setString(5, r.getTourist_name());
+            pst.setInt(5, r.getId_User());
             pst.setInt(5, r.getReport_id());
             pst.executeUpdate();
             System.out.println("Event modifiée !");
@@ -81,7 +81,7 @@ public class ServiceReports implements IService<Reports>{
             PreparedStatement pst = cnx.prepareStatement(req);
             ResultSet result = pst.executeQuery();
             while(result.next()) {
-                list.add(new Reports(result.getInt("Report_Id"), result.getString("Report_Subject"), result.getString("Report_Description"),result.getString("Involvment"), result.getString("Incident_type"), result.getDate("Incident_date"), result.getString("Incident_Location"), result.getString("Tourist_Name")));
+                list.add(new Reports(result.getInt("Report_Id"), result.getString("Report_Subject"), result.getString("Report_Description"),result.getString("Involvment"), result.getString("Incident_type"), result.getDate("Incident_date"), result.getString("Incident_Location"), result.getInt("Id_User")));
             }
             System.out.println("Events récupérées !");
         } catch (SQLException ex) {

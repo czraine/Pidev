@@ -94,7 +94,7 @@ public class LoginController implements Initializable {
     @FXML
     private void handleCancelButtonAction(ActionEvent event) {
         closeStage();
-        Util.loadWindow(getClass().getResource("/roadrevel/UI/Main/MainPage.fxml"), "Return back to main", null);
+        Util.loadWindow(getClass().getResource("/roadrevel/UI/NewMain/MainPage.fxml"), "Return back to main", null);
     }
 
     private void closeStage() {
