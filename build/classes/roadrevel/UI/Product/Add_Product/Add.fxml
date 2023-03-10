@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXTextArea?>
+<?import com.jfoenix.controls.JFXTextField?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.text.Font?>
+
+
+<StackPane fx:id="rootPane" prefHeight="817.0" prefWidth="1156.0" stylesheets="@../../../resources/Style.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="roadrevel.UI.Product.Add_Product.AddController">
+   <children>
+      <AnchorPane fx:id="mainContainer" focusTraversable="true" prefHeight="712.0" prefWidth="815.0" style="-fx-background-color: #393351;" stylesheets="@../../../resources/Style.css">
+         <children>
+            <Pane focusTraversable="true" layoutY="21.0" prefHeight="61.0" prefWidth="317.0" style="-fx-background-color: #FA2C56; -fx-background-radius: 5;">
+               <children>
+                  <Label layoutX="1.0" layoutY="-1.0" prefHeight="61.0" prefWidth="273.0" text="Products" textFill="WHITE" wrapText="true">
+                     <font>
+                        <Font name="System Bold" size="29.0" />
+                     </font>
+                  </Label>
+               </children>
+            </Pane>
+            <Pane focusTraversable="true" layoutY="106.0" prefHeight="713.0" prefWidth="1156.0">
+               <children>
+                  <ComboBox fx:id="ProductStatus" layoutX="815.0" layoutY="166.0" prefHeight="61.0" prefWidth="327.0" promptText="Status" styleClass="toolbar-button" stylesheets="@../../../resources/Style.css" visibleRowCount="2">
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
+                  </ComboBox>
+                  <JFXTextField fx:id="ProductName" focusColor="#fa2c56" labelFloat="true" layoutX="48.0" layoutY="32.0" prefHeight="52.0" prefWidth="327.0" promptText="Enter Name" styleClass="text" unFocusColor="#fa2c56">
+                     <font>
+                        <Font size="23.0" />
+                     </font>
+                  </JFXTextField>
+                  <JFXTextField fx:id="ProductType" focusColor="#fa2c56" labelFloat="true" layoutX="461.0" layoutY="32.0" prefHeight="52.0" prefWidth="327.0" promptText="Enter Product Type" styleClass="text" unFocusColor="#fa2c56">
+                     <font>
+                        <Font size="23.0" />
+                     </font>
+                  </JFXTextField>
+                  <JFXTextField fx:id="ProductPrice" focusColor="#fa2c56" labelFloat="true" layoutX="48.0" layoutY="158.0" prefHeight="52.0" prefWidth="327.0" promptText="Enter Price" styleClass="text" unFocusColor="#fa2c56">
+                     <font>
+                        <Font size="23.0" />
+                     </font>
+                  </JFXTextField>
+                  <JFXTextField fx:id="ProductQte" focusColor="#fa2c56" labelFloat="true" layoutX="461.0" layoutY="158.0" prefHeight="52.0" prefWidth="327.0" promptText="Enter Quantity" styleClass="text" unFocusColor="#fa2c56">
+                     <font>
+                        <Font size="23.0" />
+                     </font>
+                  </JFXTextField>
+                  <JFXButton fx:id="ProductImg" alignment="CENTER" layoutX="838.0" layoutY="41.0" onAction="#AddImage" prefHeight="61.0" prefWidth="304.0" ripplerFill="#a43636" styleClass="toolbar-button" text="Product Image" textFill="#4d4d4d">
+                     <font>
+                        <Font size="24.0" />
+                     </font>
+                  </JFXButton>
+                  <JFXButton fx:id="btnAdd" alignment="CENTER" layoutX="912.0" layoutY="638.0" onAction="#HandleAddOperation" prefHeight="61.0" prefWidth="230.0" ripplerFill="#a43636" styleClass="Add-button" text="Add Product" textFill="#4d4d4d">
+                     <font>
+                        <Font size="24.0" />
+                     </font>
+                  </JFXButton>
+                  <JFXButton fx:id="Cancel" alignment="CENTER" layoutX="14.0" layoutY="638.0" onAction="#HandleCancelOperation" prefHeight="61.0" prefWidth="230.0" ripplerFill="#a43636" styleClass="Add-button" text="Cancel" textFill="#4d4d4d">
+                     <font>
+                        <Font size="24.0" />
+                     </font>
+                  </JFXButton>
+                  <JFXTextArea fx:id="ProdDescrp" focusColor="#fa2c56" labelFloat="true" layoutX="48.0" layoutY="248.0" prefHeight="367.0" prefWidth="755.0" promptText="Description" styleClass="text" unFocusColor="#fa2c56">
+                     <font>
+                        <Font size="25.0" />
+                     </font>
+                  </JFXTextArea>
+               </children>
+               <padding>
+                  <Insets bottom="25.0" top="30.0" />
+               </padding>
+            </Pane>
+            <Pane focusTraversable="true" layoutX="839.0" layoutY="21.0" prefHeight="61.0" prefWidth="317.0" style="-fx-background-color: #FA2C56; -fx-background-radius: 5;">
+               <children>
+                  <ImageView fitHeight="61.0" fitWidth="284.0" focusTraversable="true" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../../../../../RoadRevel/src/roadrevel/resources/logoRoad.png" />
+                     </image>
+                  </ImageView>
+               </children>
+            </Pane>
+         </children>
+      </AnchorPane>
+   </children>
+</StackPane>
