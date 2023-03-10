@@ -92,14 +92,14 @@ public class Favs_listController implements Initializable {
 
     private void loadData() {
         list.clear();
-        boolean flag = sf.checkfavs(u.getUser_Id());
+        boolean flag = sf.checkfavs(u.getId_User());
         if (flag){
         String req = "SELECT * FROM placetovisit where Place_id IN( Select id_Place FROM user_favsplaces where id_User=?  ) ";
   
                     PreparedStatement pst;
         try {
             pst = cnx.prepareStatement(req);
-            pst.setInt(1,u.getUser_Id());
+                pst.setInt(1,u.getId_User());
             ResultSet result = pst.executeQuery();
             while(result.next()) {
                 list.add(new PlaceToVisit(result.getInt("Place_Id"), result.getString("Place_Name"), result.getString("CityName"),result.getString("Place_Type"), result.getString("Place_Description"), result.getString("Place_Address"), result.getInt("Tickets_Price"), result.getString("Place_Img"), result.getString("Place_img2"), result.getString("Place_Img3")));    

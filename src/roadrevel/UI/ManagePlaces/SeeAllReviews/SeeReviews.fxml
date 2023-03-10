@@ -5,7 +5,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" prefHeight="549.0" prefWidth="821.0" stylesheets="@../../../resources/dark-theme.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="roadrevel.UI.ManagePlaces.SeeReviews.SeeReviewsController">
+<AnchorPane id="AnchorPane" prefHeight="549.0" prefWidth="821.0" stylesheets="@../../../resources/dark-theme.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="roadrevel.UI.ManagePlaces.SeeAllReviews.SeeReviewsController">
    <children>
       <JFXListView fx:id="ReviewRate" layoutX="70.0" layoutY="107.0" prefHeight="400.0" prefWidth="231.0" />
       <JFXListView fx:id="Review_txt" layoutX="348.0" layoutY="107.0" prefHeight="400.0" prefWidth="402.0" />

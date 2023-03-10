@@ -1,20 +1,27 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/javafx/FXMLController.java to edit this template
- */
 package roadrevel.UI.Guide.AddGuide;
 
+ 
+import com.jfoenix.controls.JFXButton;
+import com.jfoenix.controls.JFXPasswordField;
+import com.jfoenix.controls.JFXTextField;
+ 
 import java.net.URL;
+import java.util.ArrayList;
 import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
+import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.StackPane;
 import javafx.stage.Stage;
 import javax.swing.JOptionPane;
+import org.mindrot.jbcrypt.BCrypt;
 import roadrevel.entities.Guide.Guide;
 import roadrevel.entities.Guide.ServiceGuide;
+import roadrevel.entities.User.ServiceUser;
+import roadrevel.resources.AlertMaker;
 
 /**
  * FXML Controller class
@@ -24,14 +31,8 @@ import roadrevel.entities.Guide.ServiceGuide;
 public class AddController implements Initializable {
 
     @FXML
-    private TextField firstname;
-    @FXML
     private TextField phone;
-    @FXML
-    private TextField lastname;
-    @FXML
-    private TextField email;
-    @FXML
+
     private TextField username;
     @FXML
     private TextField lang1;
@@ -39,20 +40,33 @@ public class AddController implements Initializable {
     private TextField lang2;
     @FXML
     private TextField lang3;
-    @FXML
-    private Button cancel;
-    @FXML
-    private Button Addbtn;
-    @FXML
-    private TextField cityname;
-    @FXML
-    private TextField password;
-   
-    ServiceGuide sg= new ServiceGuide();
-    Boolean isInEditMode=Boolean.FALSE;
-     String Role="Guide";
-     int idGuide ;
 
+    ServiceGuide sg = new ServiceGuide();
+    Boolean isInEditMode = Boolean.FALSE;
+    String Role = "Guide";
+    int idGuide;
+    @FXML
+    private StackPane rootPane;
+    @FXML
+    private AnchorPane mainContainer;
+    @FXML
+    private JFXTextField fname;
+    @FXML
+    private JFXTextField Lname;
+    @FXML
+    private JFXTextField mail;
+    @FXML
+    private JFXTextField Uname;
+    @FXML
+    private JFXPasswordField pass;
+    @FXML
+    private JFXPasswordField Cpass;
+    @FXML
+    private JFXTextField cname;
+    @FXML
+    private JFXButton addbtn;
+    @FXML
+    private JFXButton Cancel;
 
     /**
      * Initializes the controller class.
@@ -60,102 +74,139 @@ public class AddController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
-    }    
-    
-  
+    }
 
     private void cancel(ActionEvent event) {
-                getStage().close();
+        getStage().close();
     }
 
-    private void add_guide(ActionEvent event) {
-        String Fname= firstname.getText();
-         String Lname= lastname.getText();
-          String Uname= username.getText();
-          String mail= email.getText();
-           String Pass= password.getText();
-            int Tpho= Integer.parseInt(phone.getText());
-             String Langue1= lang1.getText();
-             String Langue2= lang2.getText();
-             String Langue3= lang3.getText();
-             String Cityname= cityname.getText();
-             
-if ( Fname.isEmpty() || Lname.isEmpty() || Uname.isEmpty() || mail.isEmpty() || Pass.isEmpty()|| Langue1.isEmpty() || Langue2.isEmpty() || Langue3.isEmpty() || Cityname.isEmpty()  ){
-        JOptionPane.showMessageDialog(null, " please fill the Blank ");
-return ;
-
-}
-         if (isInEditMode) {
-            handleEditOperation();
-            return;
-        }    
-        Guide pv = new Guide(Fname,Lname,Uname,mail,Pass,Role,Tpho,Langue1,Langue2,Langue3,Cityname) ; 
-         sg.ajouter(pv);
-
-    }
-
-   public Stage getStage() {
-        return (Stage) firstname.getScene().getWindow();
+    public Stage getStage() {
+        return (Stage) fname.getScene().getWindow();
     }
 
     public void handleEditOperation() {
-        Guide place = new Guide(idGuide ,firstname.getText(), lastname.getText(),email.getText(),Integer.parseInt(phone.getText()), username.getText(),  password.getText(), lang1.getText(), lang2.getText(),lang3.getText(),cityname.getText());
-        sg.modifier(place) ;
-JOptionPane.showMessageDialog(null, " Guide has been modified ");        
+        Guide d = new Guide(idGuide, fname.getText(), Lname.getText(), mail.getText(), Integer.parseInt(phone.getText()), Uname.getText(), pass.getText(), cname.getText(), lang1.getText(), lang2.getText(), lang3.getText());
+        sg.modifier(d);
+        JOptionPane.showMessageDialog(null, " Tourist has been modified ");
     }
 
     public void infalteUI(Guide place) {
-        firstname.setText(place.getFname());
-        lastname.setText(place.getLname());
-        username.setText(place.getUserName());
-        email.setText(place.getUemail());
-        password.setText(place.getPassword());
-        phone.setText(String.valueOf(place.getUphone()));
-        lang1.setText(place.getLang1()) ;
-         lang2.setText(place.getLang2()) ;
-          lang3.setText(place.getLang3()) ;
-          cityname.setText(place.getCityname()) ;
-          idGuide = place.getUser_Id();
+        fname.setText(place.getUser_FirstName());
+        Lname.setText(place.getUser_LastName());
+        Uname.setText(place.getUsername());
+        mail.setText(place.getUser_mail());
+        pass.setText(place.getPassword());
+        phone.setText(String.valueOf(place.getUser_phone()));
+        cname.setText(place.getCityname());
+        lang1.setText(place.getLang1());
+        lang2.setText(place.getLang2());
+        lang3.setText(place.getLang3());
+        idGuide = place.getId_User();
 
-       isInEditMode = Boolean.TRUE;    }
+        isInEditMode = Boolean.TRUE;
+    }
 
-    @FXML
     private void LoadCancel(ActionEvent event) {
         getStage().close();
     }
 
     @FXML
-    private void LoadAdd(ActionEvent event) {
-                String Fname= firstname.getText();
-         String Lname= lastname.getText();
-          String Uname= username.getText();
-          String mail= email.getText();
-           String Pass= password.getText();
-            int Tpho= Integer.parseInt(phone.getText());
-             String Langue1= lang1.getText();
-             String Langue2= lang2.getText();
-             String Langue3= lang3.getText();
-             String Cityname= cityname.getText();
-             
-if ( Fname.isEmpty() || Lname.isEmpty() || Uname.isEmpty() || mail.isEmpty() || Pass.isEmpty()|| Langue1.isEmpty() || Langue2.isEmpty() || Langue3.isEmpty() || Cityname.isEmpty()  ){
-        JOptionPane.showMessageDialog(null, " please fill the Blank ");
-return ;
+    private void handleAddOperation(ActionEvent event) {
+        int tpho = 0;
+        String Fname = fname.getText();
+        String lname = Lname.getText();
+        String uname = Uname.getText();
+        String email = mail.getText();
+        String Pass = pass.getText();
+        String cpass = Cpass.getText();
+        String cityname = cname.getText();
+        String langue1 = lang1.getText();
+        String langue2 = lang2.getText();
+        String langue3 = lang3.getText();
 
-}
-         if (isInEditMode) {
+        if (Fname.isEmpty()) {
+            AlertMaker.showMaterialDialog(rootPane, mainContainer, new ArrayList<>(), "Insufficient Data", "Please enter your Name.");
+            return;
+        }
+        if (lname.isEmpty()) {
+            AlertMaker.showMaterialDialog(rootPane, mainContainer, new ArrayList<>(), "Insufficient Data", "Please enter your Last Name.");
+            return;
+        }
+        if (email.isEmpty() || !email.contains("@") || !email.contains(".")) {
+            AlertMaker.showMaterialDialog(rootPane, mainContainer, new ArrayList<>(), "Insufficient Data", "Please enter your Mail.");
+            return;
+        }
+        if (phone.getText().isEmpty()) {
+            AlertMaker.showMaterialDialog(rootPane, mainContainer, new ArrayList<>(), "Insufficient Data", "Please enter your Phone Number");
+            return;
+        } else if (!(phone.getText().matches("[0-9]+"))) {
+            AlertMaker.showMaterialDialog(rootPane, mainContainer, new ArrayList<>(), "Wrong Data", "Phone Must Be a Number");
+            return;
+        } else if (Integer.parseInt(phone.getText()) < 10000000 || Integer.parseInt(phone.getText()) > 100000000) {
+
+            AlertMaker.showMaterialDialog(rootPane, mainContainer, new ArrayList<>(), "Wrong Data", "Phone Must Be a Valid Number");
+            return;
+
+        } else {
+            tpho = Integer.parseInt(phone.getText());
+
+        }
+        if (uname.isEmpty()) {
+            AlertMaker.showMaterialDialog(rootPane, mainContainer, new ArrayList<>(), "Insufficient Data", "Please enter your UserName.");
+            return;
+        }
+
+        if (Pass.isEmpty()) {
+            AlertMaker.showMaterialDialog(rootPane, mainContainer, new ArrayList<>(), "Insufficient Data", "Please enter password.");
+            return;
+        }
+        if (cpass.isEmpty()) {
+            AlertMaker.showMaterialDialog(rootPane, mainContainer, new ArrayList<>(), "Insufficient Data", "Please re-enter password.");
+            return;
+        }
+        if (!(Pass.equalsIgnoreCase(cpass))) {
+            System.out.println(Pass + " / " + cpass);
+            AlertMaker.showMaterialDialog(rootPane, mainContainer, new ArrayList<>(), "Wrong Data", "Make sure you write the same Password.");
+            return;
+        }
+        if (cityname.isEmpty()) {
+            AlertMaker.showMaterialDialog(rootPane, mainContainer, new ArrayList<>(), "Insufficient Data", "Please enter The city you want to work in.");
+            return;
+        }
+        if (langue1.isEmpty()) {
+            AlertMaker.showMaterialDialog(rootPane, mainContainer, new ArrayList<>(), "Insufficient Data", "Please enter your 1st lanquage .");
+            return;
+        }
+        if (langue2.isEmpty()) {
+            AlertMaker.showMaterialDialog(rootPane, mainContainer, new ArrayList<>(), "Insufficient Data", "Please enter your 2nd lanquage .");
+            return;
+        }
+        if (langue3.isEmpty()) {
+            AlertMaker.showMaterialDialog(rootPane, mainContainer, new ArrayList<>(), "Insufficient Data", "Please enter your 3rd lanquage .");
+            return;
+        }
+
+        if (isInEditMode) {
             handleEditOperation();
             return;
-        }    
-        Guide pv = new Guide(Fname,Lname,Uname,mail,Pass,Role,Tpho,Langue1,Langue2,Langue3,Cityname) ; 
-         sg.ajouter(pv);
-         getStage().close();
-         
+        }
+        Pass=BCrypt.hashpw(Pass, BCrypt.gensalt());
+        Guide pv = new Guide(Fname, lname, uname, email, Pass, tpho, Role, cityname, langue1, langue2, langue3);
+       ServiceUser su = new ServiceUser();
+        boolean flag = su.validate(uname);
+                if (flag) {
+                                AlertMaker.showMaterialDialog(rootPane, mainContainer, new ArrayList<>(),"Failed","User Name Already exists");
+
+        } else {
+ 
+        sg.ajouter(pv);
+        getStage().close();
+}
+    }
+
+    @FXML
+    private void handleCancel(ActionEvent event) {
+        getStage().close();
+
     }
 }
-
-             
-          
-        
-    
-    
-

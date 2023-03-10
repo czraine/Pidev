@@ -4,6 +4,7 @@
 <?import com.jfoenix.controls.JFXDrawer?>
 <?import com.jfoenix.controls.JFXHamburger?>
 <?import com.jfoenix.controls.JFXTabPane?>
+<?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView?>
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.ScrollPane?>
@@ -11,6 +12,7 @@
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
 <?import javafx.scene.layout.GridPane?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.Pane?>
@@ -20,7 +22,7 @@
 <?import javafx.scene.shape.Circle?>
 <?import javafx.scene.text.Font?>
 
-<StackPane fx:id="rootPane" focusTraversable="true" minHeight="-Infinity" minWidth="-Infinity" stylesheets="@../../resources/Styles.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="roadrevel.UI.Tourist.TouristPageController">
+<StackPane fx:id="rootPane" focusTraversable="true" stylesheets="@../../resources/Styles.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="roadrevel.UI.Tourist.TouristPageController">
    <children>
       <JFXDrawer fx:id="drawer" resizableOnDrag="true" resizeContent="true" styleClass="jfx-drawer" />
       <BorderPane fx:id="rootAnchorPane" focusTraversable="true" styleClass="dark-background" stylesheets="@../../resources/Styles.css">
@@ -81,7 +83,7 @@
                                        </children>
                                     </VBox>
                                     <Pane prefHeight="200.0" prefWidth="200.0" HBox.hgrow="ALWAYS" />
-                                    <JFXButton prefHeight="41.0" prefWidth="84.0" styleClass="toolbar-button" text="  " textFill="#46adc9">
+                                    <JFXButton fx:id="btn_workbench22" onAction="#profile" prefHeight="41.0" prefWidth="84.0" styleClass="toolbar-button" text="Profile" textFill="#46adc9">
                                        <font>
                                           <Font name="System Bold" size="18.0" />
                                        </font>
@@ -94,9 +96,9 @@
                               <ScrollPane fitToHeight="true" fitToWidth="true" prefWidth="1300.0" VBox.vgrow="ALWAYS">
                                  <content>
                                     <GridPane fx:id="PlacesGrid" focusTraversable="true" styleClass="dark-background">
-                                      <rowConstraints>
-                                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                                      </rowConstraints>
+                                       <rowConstraints>
+                                          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                       </rowConstraints>
                                     </GridPane>
                                  </content>
                               </ScrollPane>
@@ -106,7 +108,123 @@
                   </Tab>
                   <Tab closable="false" styleClass="tab-main" text="Events">
                      <content>
-                        <AnchorPane focusTraversable="true" minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="1300.0" />
+                        <VBox focusTraversable="true" prefHeight="651.0" prefWidth="1300.0" stylesheets="@../../resources/Styles.css">
+                           <children>
+                              <HBox alignment="CENTER" focusTraversable="true" prefHeight="95.0" prefWidth="1300.0">
+                                 <children>
+                                    <VBox alignment="CENTER" prefHeight="127.0" prefWidth="243.0">
+                                       <children>
+                                          <Label alignment="CENTER" prefHeight="35.0" prefWidth="105.0" text="Events" textFill="#676767">
+                                             <font>
+                                                <Font name="System Bold" size="22.0" />
+                                             </font>
+                                          </Label>
+                                          <Label fx:id="nbEventPst" alignment="CENTER" prefHeight="27.0" prefWidth="84.0" text="25 posts" textFill="#676767">
+                                             <font>
+                                                <Font size="18.0" />
+                                             </font>
+                                          </Label>
+                                       </children>
+                                    </VBox>
+                                    <Pane prefHeight="200.0" prefWidth="200.0" HBox.hgrow="ALWAYS" />
+                                    <HBox alignment="CENTER" prefHeight="95.0" prefWidth="94.0">
+                                       <children>
+                                          <JFXButton prefHeight="41.0" prefWidth="84.0" styleClass="toolbar-button" text="  " textFill="#46adc9">
+                                             <font>
+                                                <Font name="System Bold" size="18.0" />
+                                             </font>
+                                          </JFXButton>
+                                       </children>
+                                    </HBox>
+                                 </children>
+                                 <padding>
+                                    <Insets left="30.0" right="30.0" />
+                                 </padding>
+                              </HBox>
+                              <ScrollPane fitToHeight="true" fitToWidth="true" prefWidth="1300.0" VBox.vgrow="ALWAYS">
+                                 <content>
+                                    <GridPane fx:id="EventsGrid" focusTraversable="true" styleClass="dark-background">
+                                       <rowConstraints>
+                                          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                       </rowConstraints>
+                                    </GridPane>
+                                 </content>
+                              </ScrollPane>
+                           </children>
+                        </VBox>
+                     </content>
+                  </Tab>
+                  <Tab closable="false" styleClass="tab-main" text="Plans">
+                     <content>
+                        <AnchorPane>
+                           <children>
+                              <VBox focusTraversable="true" prefHeight="651.0" prefWidth="1300.0" stylesheets="@../../../../../../../../../Documents/NetBeansProjects/RoaRevelShop/src/roadrevel/resources/Style.css">
+                                 <children>
+                                    <Label alignment="TOP_LEFT" text="Circuits" textFill="WHITE">
+                                       <font>
+                                          <Font name="System Bold" size="24.0" />
+                                       </font>
+                                    </Label>
+                                    <ScrollPane fitToHeight="true" fitToWidth="true" prefHeight="617.0" prefWidth="1300.0" styleClass="transparent" stylesheets="style.css" VBox.vgrow="ALWAYS">
+                                       <content>
+                                          <GridPane fx:id="circuitGrid" focusTraversable="true">
+                                             <columnConstraints>
+                                                <ColumnConstraints fillWidth="true" hgrow="ALWAYS" />
+                                             </columnConstraints>
+                                          </GridPane>
+                                       </content>
+                                    </ScrollPane>
+                                 </children>
+                              </VBox>
+                           </children>
+                        </AnchorPane>
+                     </content>
+                  </Tab>
+                  <Tab closable="false" styleClass="tab-main" text="Shop">
+                     <content>
+                        <VBox focusTraversable="true" prefHeight="651.0" prefWidth="1300.0" stylesheets="@../../../../../../../../../Documents/NetBeansProjects/RoaRevelShop/src/roadrevel/resources/Style.css">
+                           <children>
+                              <HBox alignment="CENTER" focusTraversable="true" prefHeight="95.0" prefWidth="1300.0">
+                                 <children>
+                                    <VBox alignment="CENTER" prefHeight="127.0" prefWidth="243.0">
+                                       <children>
+                                          <Label prefHeight="35.0" prefWidth="105.0" text="Traveling" textFill="#676767">
+                                             <font>
+                                                <Font name="System Bold" size="22.0" />
+                                             </font>
+                                          </Label>
+                                          <Label fx:id="nbProdPst" prefHeight="27.0" prefWidth="84.0" text="25 posts" textFill="#676767">
+                                             <font>
+                                                <Font size="18.0" />
+                                             </font>
+                                          </Label>
+                                       </children>
+                                    </VBox>
+                                    <Pane prefHeight="200.0" prefWidth="200.0" HBox.hgrow="ALWAYS" />
+                                    <JFXButton fx:id="OpenC" onAction="#HandleCart" prefHeight="57.0" prefWidth="84.0" styleClass="toolbar-button" text="  " textFill="#46adc9">
+                                       <font>
+                                          <Font name="System Bold" size="18.0" />
+                                       </font>
+                                       <graphic>
+                                          <FontAwesomeIconView glyphName="SHOPPING_CART" size="30" wrappingWidth="25.714284896850586" />
+                                       </graphic>
+                                    </JFXButton>
+                                 </children>
+                                 <padding>
+                                    <Insets left="30.0" right="30.0" />
+                                 </padding>
+                              </HBox>
+                              <ScrollPane fitToHeight="true" fitToWidth="true" prefWidth="1300.0" VBox.vgrow="ALWAYS">
+                                 <content>
+                                    <GridPane fx:id="PlrodGrid" focusTraversable="true" styleClass="dark-background">
+                                       <rowConstraints>
+                                          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                       </rowConstraints>
+                                    </GridPane>
+                                 </content>
+                              </ScrollPane>
+                           </children>
+                        </VBox>
                      </content>
                   </Tab>
                </tabs>

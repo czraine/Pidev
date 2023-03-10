@@ -1,6 +1,7 @@
 
 package roadrevel.entities.User;
 
+import java.util.Date;
 import java.util.Objects;
 
 /**
@@ -8,116 +9,203 @@ import java.util.Objects;
  * @author Nasr
  */
 public class User {
-    private int User_Id ;
-    private String Fname ;
-    private String Lname ; 
-    private String Uemail ;
-        private String UserName ;
+    private int Id_User ;
+    private String User_FirstName ;
+    private String User_LastName ; 
+    private String User_mail ;
+    private int User_phone ;
+    private String Username ;
     private String Password ;
-    private int Uphone ;
     private String role ;
+    private String cityname1;
+    private Date dateBegin;
+    private Date dateEnd;
+    private Boolean disponibility;
 
-    public User(String Fname, String Lname, String Uemail, String UserName, String Password, int Uphone, String role) {
-        this.Fname = Fname;
-        this.Lname = Lname;
-        this.Uemail = Uemail;
-        this.UserName = UserName;
+    public User() {
+    }
+
+    
+    
+    
+    public String getCityname1() {
+        return cityname1;
+    }
+
+    public void setCityname1(String cityname) {
+        this.cityname1 = cityname;
+    }
+
+    public User(int Id_User, String User_FirstName, String User_LastName, String User_mail, int User_phone, String Username, String Password, String role, String cityname1, Date dateBegin, Date dateEnd, Boolean disponibility) {
+        this.Id_User = Id_User;
+        this.User_FirstName = User_FirstName;
+        this.User_LastName = User_LastName;
+        this.User_mail = User_mail;
+        this.User_phone = User_phone;
+        this.Username = Username;
         this.Password = Password;
-        this.Uphone = Uphone;
+        this.role = role;
+        this.cityname1 = cityname1;
+        this.dateBegin = dateBegin;
+        this.dateEnd = dateEnd;
+        this.disponibility = disponibility;
+    }
+
+    public User(int Id_User, Date dateBegin, Date dateEnd, Boolean disponibility) {
+        this.Id_User = Id_User;
+        this.dateBegin = dateBegin;
+        this.dateEnd = dateEnd;
+        this.disponibility = disponibility;
+    }
+
+    public User(int Id_User, String cityname1, Date dateBegin, Date dateEnd) {
+        this.Id_User = Id_User;
+        this.cityname1 = cityname1;
+        this.dateBegin = dateBegin;
+        this.dateEnd = dateEnd;
+    }
+
+    public Date getDateBegin() {
+        return dateBegin;
+    }
+
+    public void setDateBegin(Date dateBegin) {
+        this.dateBegin = dateBegin;
+    }
+
+    public Date getDateEnd() {
+        return dateEnd;
+    }
+
+    public void setDateEnd(Date dateEnd) {
+        this.dateEnd = dateEnd;
+    }
+
+    public Boolean getDisponibility() {
+        return disponibility;
+    }
+
+    public void setDisponibility(Boolean disponibility) {
+        this.disponibility = disponibility;
+    }
+
+    
+    
+    
+    public User(int Id_User, String User_FirstName, String User_LastName, String User_mail, int User_phone, String Username, String Password, String role, Date dateBegin, Date dateEnd, Boolean disponibility) {
+        this.Id_User = Id_User;
+        this.User_FirstName = User_FirstName;
+        this.User_LastName = User_LastName;
+        this.User_mail = User_mail;
+        this.User_phone = User_phone;
+        this.Username = Username;
+        this.Password = Password;
+        this.role = role;
+        this.dateBegin = dateBegin;
+        this.dateEnd = dateEnd;
+        this.disponibility = disponibility;
+    }
+    
+
+    public User(String User_FirstName, String User_LastName, String User_mail, int User_phone, String Username, String Password) {
+        this.User_FirstName = User_FirstName;
+        this.User_LastName = User_LastName;
+        this.User_mail = User_mail;
+        this.User_phone = User_phone;
+        this.Username = Username;
+        this.Password = Password;
+    }
+
+    public User(String User_FirstName, String User_LastName, String User_mail, int User_phone, String Username, String Password, String role) {
+        this.User_FirstName = User_FirstName;
+        this.User_LastName = User_LastName;
+        this.User_mail = User_mail;
+        this.User_phone = User_phone;
+        this.Username = Username;
+        this.Password = Password;
+        this.role = role;
+    }
+     
+     
+
+    public User(int Id_User) {
+        this.Id_User = Id_User;
+    }
+
+    public User(int Id_User, String User_FirstName, String User_LastName, String User_mail, int User_phone, String Username, String Password) {
+        this.Id_User = Id_User;
+        this.User_FirstName = User_FirstName;
+        this.User_LastName = User_LastName;
+        this.User_mail = User_mail;
+        this.User_phone = User_phone;
+        this.Username = Username;
+        this.Password = Password;
+    }
+
+    public User(int Id_User, String User_FirstName, String User_LastName, String User_mail, int User_phone, String Username, String Password, String role) {
+        this.Id_User = Id_User;
+        this.User_FirstName = User_FirstName;
+        this.User_LastName = User_LastName;
+        this.User_mail = User_mail;
+        this.User_phone = User_phone;
+        this.Username = Username;
+        this.Password = Password;
         this.role = role;
     }
 
-    public User(int User_Id, String Fname, String Lname, String Uemail, String UserName, String Password, int Uphone) {
-        this.User_Id = User_Id;
-        this.Fname = Fname;
-        this.Lname = Lname;
-        this.Uemail = Uemail;
-        this.UserName = UserName;
-        this.Password = Password;
-        this.Uphone = Uphone;
-    }
 
-    public User(int User_Id) {
-        this.User_Id = User_Id;
-    }
-
-    public User(int User_Id, String Fname, String Lname, String Uemail, String UserName, String Password, int Uphone, String role) {
-        this.User_Id = User_Id;
-        this.Fname = Fname;
-        this.Lname = Lname;
-        this.Uemail = Uemail;
-        this.UserName = UserName;
-        this.Password = Password;
-        this.Uphone = Uphone;
-        this.role = role;
-    }
-
-    User(int User_Id, String Fname, String Lname, String Uemail, int Uphone, String UserName, String Password) {
-        this.User_Id = User_Id;
-        this.Fname = Fname;
-        this.Lname = Lname;
-        this.Uemail = Uemail;
-        this.UserName = UserName;
-        this.Password = Password;
-        this.Uphone = Uphone;
-         }
-
-
-    public String getRole() {
-        return role;
-    }
-
-    public void setRole(String role) {
-        this.role = role;
+    public User(int Id_User,String role) {
+        this.Id_User = Id_User;
+        this.role=role;
     }
 
 
-    public int getUser_Id() {
-        return User_Id;
+    public int getId_User() {
+        return Id_User;
     }
 
-    public void setUser_Id(int User_Id) {
-        this.User_Id = User_Id;
+    public void setId_User(int Id_User) {
+        this.Id_User = Id_User;
     }
 
-    public String getFname() {
-        return Fname;
+    public String getUser_FirstName() {
+        return User_FirstName;
     }
 
-    public void setFname(String Fname) {
-        this.Fname = Fname;
+    public void setUser_FirstName(String User_FirstName) {
+        this.User_FirstName = User_FirstName;
     }
 
-    public String getLname() {
-        return Lname;
+    public String getUser_LastName() {
+        return User_LastName;
     }
 
-    public void setLname(String Lname) {
-        this.Lname = Lname;
+    public void setUser_LastName(String User_LastName) {
+        this.User_LastName = User_LastName;
     }
 
-    public String getUemail() {
-        return Uemail;
+    public String getUser_mail() {
+        return User_mail;
     }
 
-    public void setUemail(String Uemail) {
-        this.Uemail = Uemail;
+    public void setUser_mail(String User_mail) {
+        this.User_mail = User_mail;
     }
 
-    public int getUphone() {
-        return Uphone;
+    public int getUser_phone() {
+        return User_phone;
     }
 
-    public void setUphone(int Uphone) {
-        this.Uphone = Uphone;
+    public void setUser_phone(int User_phone) {
+        this.User_phone = User_phone;
     }
 
-    public String getUserName() {
-        return UserName;
+    public String getUsername() {
+        return Username;
     }
 
-    public void setUserName(String UserName) {
-        this.UserName = UserName;
+    public void setUsername(String Username) {
+        this.Username = Username;
     }
 
     public String getPassword() {
@@ -128,11 +216,25 @@ public class User {
         this.Password = Password;
     }
 
+    public String getRole() {
+        return role;
+    }
+
+    public void setRole(String role) {
+        this.role = role;
+    }
+
     @Override
     public int hashCode() {
-        int hash = 5;
-        hash = 97 * hash + Objects.hashCode(this.User_Id);
+        int hash = 7;
+        hash = 97 * hash + this.Id_User;
+        hash = 97 * hash + Objects.hashCode(this.User_FirstName);
+        hash = 97 * hash + Objects.hashCode(this.User_LastName);
+        hash = 97 * hash + Objects.hashCode(this.User_mail);
+        hash = 97 * hash + this.User_phone;
+        hash = 97 * hash + Objects.hashCode(this.Username);
         hash = 97 * hash + Objects.hashCode(this.Password);
+        hash = 97 * hash + Objects.hashCode(this.role);
         return hash;
     }
 
@@ -148,32 +250,34 @@ public class User {
             return false;
         }
         final User other = (User) obj;
-        if (this.Uphone != other.Uphone) {
+        if (this.Id_User != other.Id_User) {
             return false;
         }
-        if (!Objects.equals(this.User_Id, other.User_Id)) {
+        if (this.User_phone != other.User_phone) {
             return false;
         }
-        if (!Objects.equals(this.Fname, other.Fname)) {
+        if (!Objects.equals(this.User_FirstName, other.User_FirstName)) {
             return false;
         }
-        if (!Objects.equals(this.Lname, other.Lname)) {
+        if (!Objects.equals(this.User_LastName, other.User_LastName)) {
             return false;
         }
-        if (!Objects.equals(this.Uemail, other.Uemail)) {
+        if (!Objects.equals(this.User_mail, other.User_mail)) {
             return false;
         }
-        if (!Objects.equals(this.UserName, other.UserName)) {
+        if (!Objects.equals(this.Username, other.Username)) {
             return false;
         }
-        return Objects.equals(this.Password, other.Password);
+        if (!Objects.equals(this.Password, other.Password)) {
+            return false;
+        }
+        return Objects.equals(this.role, other.role);
     }
 
     @Override
     public String toString() {
-        return "User{" + "User_Id=" + User_Id + ", Fname=" + Fname + ", Lname=" + Lname + ", Uemail=" + Uemail + ", Uphone=" + Uphone + ", UserName=" + UserName + ", Password=" + Password + '}';
+        return "User{" + "Id_User=" + Id_User + ", User_FirstName=" + User_FirstName + ", User_LastName=" + User_LastName + ", User_mail=" + User_mail + ", User_phone=" + User_phone + ", Username=" + Username + ", Password=" + Password + ", role=" + role + ", cityname1=" + cityname1 + ", dateBegin=" + dateBegin + ", dateEnd=" + dateEnd + ", disponibility=" + disponibility + '}';
     }
-    
-    
-    
+
+   
 }

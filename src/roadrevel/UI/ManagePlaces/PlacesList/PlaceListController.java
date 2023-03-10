@@ -218,7 +218,7 @@ ServicePlace sp = new ServicePlace() ;
 
     @FXML
     private void exportAsPDF(ActionEvent event) {
-                List<List> printData = new ArrayList<>();
+  /*              List<List> printData = new ArrayList<>();
         String[] headers = {"   Place Name   ", "  City Name  ", "  Place type  ", "  Description ", "  address  ","   Ticket Price   " };
         printData.add(Arrays.asList(headers));
         for (PlaceToVisit place : list) {
@@ -232,7 +232,7 @@ ServicePlace sp = new ServicePlace() ;
             printData.add(row);
         }
         Util.initPDFExprot(rootPane, contentPane, getStage(), printData);
-    }
+    */}
     }
 
 

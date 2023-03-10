@@ -77,7 +77,7 @@ java.sql.Date Review_date = new java.sql.Date(millis);
         cmnts = Comments.getText() ;
         TextFilter txtf = new TextFilter();
         String filtredcmnts = txtf.GetTwi(cmnts) ;
-        sr.ajouter(new Reviews(p.getPlace_name(), Rating, filtredcmnts, p.getPlace_Id(),Review_date,u.getUser_Id()));
+        sr.ajouter(new Reviews(p.getPlace_name(), Rating, filtredcmnts, p.getPlace_Id(),Review_date,u.getId_User()));
         closeStage();
     }
         private void closeStage() {

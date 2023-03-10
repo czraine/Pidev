@@ -203,12 +203,12 @@ public class View_PlacesController implements Initializable {
         id = tableView.getSelectionModel().getSelectedItem().getPlace_Id();
         SingleUser hold = SingleUser.getInstance();
           User u = hold.getUser();
-        boolean flag = sf.validate(u.getUser_Id(), id);
+        boolean flag = sf.validate(u.getId_User(), id);
         if (flag){
                  AlertMaker.showErrorMessage("Failure", " Places Already in Favourites ");
                  return;
         }else{
-        sf.ajouter(new Favourites(u.getUser_Id(), id));
+        sf.ajouter(new Favourites(u.getId_User(), id));
          AlertMaker.showErrorMessage("Success", " Places added To favourites  ");
         }
     }

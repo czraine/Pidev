@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXTextArea?>
+<?import com.jfoenix.controls.JFXTextField?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane stylesheets="@../../../resources/Style.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="roadrevel.UI.Product.ViewProduct.View_ProductController">
+   <children>
+      <Pane focusTraversable="true" prefHeight="713.0" prefWidth="1156.0" style="-fx-background-color: #393351;">
+         <children>
+            <JFXTextField fx:id="ProductName" editable="false" focusColor="#fa2c56" labelFloat="true" layoutX="427.0" layoutY="65.0" prefHeight="52.0" prefWidth="327.0" promptText="Product Name" styleClass="text" unFocusColor="#fa2c56">
+               <font>
+                  <Font size="23.0" />
+               </font>
+            </JFXTextField>
+            <JFXTextField fx:id="ProductType" editable="false" focusColor="#fa2c56" labelFloat="true" layoutX="823.0" layoutY="150.0" prefHeight="52.0" prefWidth="327.0" promptText="Product Type" styleClass="text" unFocusColor="#fa2c56">
+               <font>
+                  <Font size="23.0" />
+               </font>
+            </JFXTextField>
+            <JFXTextField fx:id="ProductPrice" editable="false" focusColor="#fa2c56" labelFloat="true" layoutX="823.0" layoutY="65.0" prefHeight="52.0" prefWidth="327.0" promptText="Price" styleClass="text" unFocusColor="#fa2c56">
+               <font>
+                  <Font size="23.0" />
+               </font>
+            </JFXTextField>
+            <JFXTextField fx:id="ProductQte" editable="false" focusColor="#fa2c56" labelFloat="true" layoutX="427.0" layoutY="150.0" prefHeight="52.0" prefWidth="327.0" promptText="Quantity" styleClass="text" unFocusColor="#fa2c56">
+               <font>
+                  <Font size="23.0" />
+               </font>
+            </JFXTextField>
+            <JFXTextArea fx:id="ProdDescrp" editable="false" focusColor="#fa2c56" labelFloat="true" layoutX="424.0" layoutY="332.0" prefHeight="367.0" prefWidth="718.0" promptText="Description" styleClass="text" unFocusColor="#fa2c56">
+               <font>
+                  <Font size="25.0" />
+               </font>
+            </JFXTextArea>
+            <ImageView fx:id="ProdImage" fitHeight="283.0" fitWidth="327.0" layoutX="56.0" layoutY="49.0" pickOnBounds="true" preserveRatio="true" />
+            <JFXTextField fx:id="Status" editable="false" focusColor="#fa2c56" labelFloat="true" layoutX="823.0" layoutY="251.0" prefHeight="52.0" prefWidth="327.0" promptText="Status" styleClass="text" unFocusColor="#fa2c56">
+               <font>
+                  <Font size="23.0" />
+               </font>
+            </JFXTextField>
+            <JFXButton fx:id="AddToCart" layoutX="88.0" layoutY="626.0" prefHeight="52.0" prefWidth="158.0" styleClass="Add-button" text="Add To Cart">
+               <font>
+                  <Font size="20.0" />
+               </font>
+            </JFXButton>
+            <JFXTextField fx:id="CartQte" focusColor="#fa2c56" labelFloat="true" layoutX="28.0" layoutY="516.0" prefHeight="52.0" prefWidth="327.0" promptText="Pick  Quantity" styleClass="text" unFocusColor="#fa2c56">
+               <font>
+                  <Font size="23.0" />
+               </font>
+            </JFXTextField>
+         </children>
+         <padding>
+            <Insets bottom="25.0" top="30.0" />
+         </padding>
+      </Pane>
+   </children>
+</AnchorPane>

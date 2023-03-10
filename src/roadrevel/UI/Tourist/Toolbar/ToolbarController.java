@@ -36,7 +36,24 @@ public class ToolbarController implements Initializable {
     @FXML
     private void loadConverter(ActionEvent event) {
                         System.out.println(" Convert Money ");
-        Util.loadWindow(getClass().getResource("/roadrevel/UI/Converter/Converter.fxml"), "Add New Place", null);
+        Util.loadWindow(getClass().getResource("/roadrevel/UI/Converter/Converter.fxml"), " Convert Money", null);
+    }
+
+    @FXML
+    private void loadSeeProducts(ActionEvent event) {
+                        Util.loadWindow(getClass().getResource("/roadrevel/UI/Product/ProductList/Product_list.fxml"), "See Products", null);
+
+    }
+
+    @FXML
+    private void loadSeeCart(ActionEvent event) {
+                        Util.loadWindow(getClass().getResource("/roadrevel/UI/Cart/Cart.fxml"), "My Cart", null);
+
+    }
+
+    @FXML
+    private void loadSeePlans(ActionEvent event) {
+        
     }
 
 }

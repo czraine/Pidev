@@ -4,16 +4,71 @@
 <?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView?>
 <?import javafx.scene.layout.VBox?>
 
-<VBox prefHeight="445.0" prefWidth="198.0" styleClass="toolbar-container" stylesheets="@../../../resources/dark-theme.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="roadrevel.UI.Admin.Toolbar.ToolbarController">
+<VBox prefHeight="833.0" prefWidth="262.0" styleClass="toolbar-container" stylesheets="@../../../resources/Style.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="roadrevel.UI.Admin.Toolbar.ToolbarController">
    <children>
-      <JFXButton contentDisplay="TOP" layoutX="10.0" layoutY="10.0" mnemonicParsing="false" onAction="#loadAddPlaces" prefHeight="400.0" prefWidth="205.0" styleClass="toolbar-button" text="Add Places" textAlignment="CENTER">
+      <JFXButton contentDisplay="TOP" layoutX="10.0" layoutY="10.0" mnemonicParsing="false" onAction="#loadAddPlaces" prefHeight="116.0" prefWidth="262.0" styleClass="toolbar-button" text="Add Places" textAlignment="CENTER">
          <graphic>
             <FontAwesomeIconView glyphName="BOOK" size="25" />
          </graphic>
       </JFXButton>
-      <JFXButton contentDisplay="TOP" mnemonicParsing="false" onAction="#loadSeePlaces" prefHeight="400.0" prefWidth="200.0" styleClass="toolbar-button" text=" Place List" textAlignment="CENTER">
+      <JFXButton contentDisplay="TOP" mnemonicParsing="false" onAction="#loadSeePlaces" prefHeight="115.0" prefWidth="262.0" styleClass="toolbar-button" text=" Place List" textAlignment="CENTER">
          <graphic>
             <FontAwesomeIconView glyphName="CHECK" size="25" textAlignment="CENTER" />
+         </graphic>
+      </JFXButton>
+      <JFXButton contentDisplay="TOP" mnemonicParsing="false" onAction="#loadAddEvents" prefHeight="114.0" prefWidth="262.0" styleClass="toolbar-button" text="Add Events" textAlignment="CENTER">
+         <graphic>
+            <FontAwesomeIconView glyphName="BOOK" size="25" />
+         </graphic>
+      </JFXButton>
+      <JFXButton contentDisplay="TOP" mnemonicParsing="false" onAction="#loadSeeEvents" prefHeight="126.0" prefWidth="262.0" styleClass="toolbar-button" text="Events List" textAlignment="CENTER">
+         <graphic>
+            <FontAwesomeIconView glyphName="CHECK" size="25" textAlignment="CENTER" />
+         </graphic>
+      </JFXButton>
+      <JFXButton contentDisplay="TOP" mnemonicParsing="false" onAction="#loadAddProducts" prefHeight="110.0" prefWidth="262.0" styleClass="toolbar-button" text="Add Product" textAlignment="CENTER">
+         <graphic>
+            <FontAwesomeIconView glyphName="BOOK" size="25" />
+         </graphic>
+      </JFXButton>
+      <JFXButton contentDisplay="TOP" mnemonicParsing="false" onAction="#loadSeeProducts" prefHeight="110.0" prefWidth="262.0" styleClass="toolbar-button" text="Product List" textAlignment="CENTER">
+         <graphic>
+            <FontAwesomeIconView glyphName="CHECK" size="25" textAlignment="CENTER" />
+         </graphic>
+      </JFXButton>
+      <JFXButton contentDisplay="TOP" mnemonicParsing="false" onAction="#loadSeeReports" prefHeight="111.0" prefWidth="441.0" styleClass="toolbar-button" text="Reports Lists" textAlignment="CENTER">
+         <graphic>
+            <FontAwesomeIconView glyphName="CHECK" size="25" textAlignment="CENTER" />
+         </graphic>
+      </JFXButton>
+      <JFXButton contentDisplay="TOP" mnemonicParsing="false" onAction="#loadSeeCart" prefHeight="118.0" prefWidth="262.0" styleClass="toolbar-button" text="My Cart" textAlignment="CENTER">
+         <graphic>
+            <FontAwesomeIconView glyphName="SHOPPING_CART" size="25" textAlignment="CENTER" />
+         </graphic>
+      </JFXButton>
+      <JFXButton contentDisplay="TOP" mnemonicParsing="false" onAction="#loadConverter" prefHeight="114.0" prefWidth="430.0" styleClass="toolbar-button" text="Convert Money" textAlignment="CENTER">
+         <graphic>
+            <FontAwesomeIconView glyphName="MONEY" size="25" textAlignment="CENTER" />
+         </graphic>
+      </JFXButton>
+      <JFXButton contentDisplay="TOP" mnemonicParsing="false" onAction="#loadSeetourist" prefHeight="111.0" prefWidth="441.0" styleClass="toolbar-button" text="Show Tourist" textAlignment="CENTER">
+         <graphic>
+            <FontAwesomeIconView glyphName="CHECK" size="25" textAlignment="CENTER" />
+         </graphic>
+      </JFXButton>
+      <JFXButton contentDisplay="TOP" mnemonicParsing="false" onAction="#loadSeeGuides" prefHeight="115.0" prefWidth="417.0" styleClass="toolbar-button" text="Show Guide" textAlignment="CENTER">
+         <graphic>
+            <FontAwesomeIconView glyphName="CHECK" size="25" textAlignment="CENTER" />
+         </graphic>
+      </JFXButton>
+      <JFXButton contentDisplay="TOP" mnemonicParsing="false" onAction="#loadAddAdmin" prefHeight="117.0" prefWidth="447.0" styleClass="toolbar-button" text="Add Admin" textAlignment="CENTER">
+         <graphic>
+            <FontAwesomeIconView glyphName="BOOK" size="25" />
+         </graphic>
+      </JFXButton>
+      <JFXButton contentDisplay="TOP" mnemonicParsing="false" onAction="#loadSeeAdmin" prefHeight="117.0" prefWidth="447.0" styleClass="toolbar-button" text="Show Admin" textAlignment="CENTER">
+         <graphic>
+            <FontAwesomeIconView glyphName="BOOK" size="25" />
          </graphic>
       </JFXButton>
    </children>
